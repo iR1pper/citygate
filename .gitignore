@@ -14,6 +14,7 @@ public/spec.html
 public/system/*
 coverage/
 spec/tmp/*
+spec/dummy/tmp/*
 
 # Linux ignores
 .*

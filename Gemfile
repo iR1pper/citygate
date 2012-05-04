@@ -6,10 +6,6 @@ source 'https://rubygems.org'
 # development dependencies will be added by default to the :development group.
 gemspec
 
-
-
-
-
 gem 'sqlite3'
 
 group :assets do
@@ -20,18 +16,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-
-
-
-
-
 gem 'jquery-rails'
 gem "haml", ">= 3.1.4"
 gem "haml-rails", ">= 0.3.4", :group => :development
 
 #repito os seguintes na dummy app
 gem "rspec-rails", ">= 2.8.1", :group => [:development, :test]
-gem "factory_girl_rails", ">= 1.7.0", :group => :test
+gem "factory_girl", "2.6.4", :group => :test
 gem "email_spec", ">= 1.2.1", :group => :test
 gem "cucumber-rails", ">= 1.3.0", :group => :test
 gem "capybara", ">= 1.1.2", :group => :test
