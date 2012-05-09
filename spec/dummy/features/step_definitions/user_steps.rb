@@ -66,6 +66,10 @@ Given /^I exist as an unconfirmed user$/ do
   create_unconfirmed_user
 end
 
+Given /^I am on the login page$/ do
+  visit root_path
+end
+
 ### WHEN ###
 When /^I sign in with valid credentials$/ do
   create_visitor
@@ -129,11 +133,19 @@ When /^I look at the list of users$/ do
   visit '/'
 end
 
+When /^I click (.*)$/ do |link|
+  click_link link
+end
+
 ### THEN ###
 Then /^I should be signed in$/ do
   page.should have_content "Logout"
   page.should_not have_content "Sign up"
   page.should_not have_content "Login"
+end
+
+Then /^I should be signed in with (.*)$/ do |provider|
+  page.should have_content "Successfully authorized from #{provider} account"
 end
 
 Then /^I should be signed out$/ do
@@ -185,4 +197,8 @@ end
 Then /^I should see my name$/ do
   create_user
   page.should have_content @user[:name]
+end
+
+Then /^I can see (.*)$/ do |text|
+  has_link?(text).should be_true
 end

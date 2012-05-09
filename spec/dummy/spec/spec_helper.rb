@@ -37,3 +37,32 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 end
+
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:facebook] = {
+  "uid" => "10",
+  "credentials" => {
+    "token" => "1234567890"
+  },
+  "extra" => {
+    "raw_info" => {
+      "email" => "zamith@groupbuddies.com",
+      "name" => "zamith",
+      "link" => "zamith.github.com"
+    }
+  },
+  "info" => {
+    "image" => "/path/to/image"
+  }
+}
+
+OmniAuth.config.mock_auth[:google] = {
+  "uid" => "10",
+  "credentials" => {
+    "token" => "1234567890"
+  },
+  "info" => {
+    "email" => "zamith@groupbuddies.com",
+    "name" => "zamith"
+  }
+}

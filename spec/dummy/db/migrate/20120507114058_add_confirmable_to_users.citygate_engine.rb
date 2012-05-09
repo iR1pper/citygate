@@ -1,4 +1,4 @@
-# This migration comes from citygate (originally 20120303195111)
+# This migration comes from citygate_engine (originally 20120303195111)
 class AddConfirmableToUsers < ActiveRecord::Migration
   def change
     add_column :users, :confirmation_token, :string

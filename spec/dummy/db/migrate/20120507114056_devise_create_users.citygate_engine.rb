@@ -1,4 +1,4 @@
-# This migration comes from citygate (originally 20120303195052)
+# This migration comes from citygate_engine (originally 20120303195052)
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
