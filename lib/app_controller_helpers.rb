@@ -1,8 +1,6 @@
 module AppControllerHelpers
   module ClassMethods
-    def hello
-      p "From lib"
-    end
+    
   end
   
   module InstanceMethods
