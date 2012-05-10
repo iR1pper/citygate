@@ -12041,3 +12041,391 @@ Served asset /jquery_ujs.js - 304 Not Modified (0ms)
 
 Started GET "/assets/citygate/application.js?body=1" for 127.0.0.1 at 2012-05-08 19:02:15 +0100
 Served asset /citygate/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-10 15:53:20 +0100
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/home/index.html.erb within layouts/application (1.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (29.8ms)
+Completed 200 OK in 1154ms (Views: 968.8ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/assets/citygate/application.css?body=1" for 127.0.0.1 at 2012-05-10 15:53:21 +0100
+Served asset /citygate/application.css - 304 Not Modified (33ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:21 +0100
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:21 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/citygate/application.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:21 +0100
+Served asset /citygate/application.js - 304 Not Modified (63ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-05-10 15:53:24 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Y44PDUjc5kJWd0catODtynboptEBlxAdN84cep+g0qI="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 420ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-10 15:53:24 +0100
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/home/index.html.erb within layouts/application (0.9ms)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (1.5ms)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/citygate/application.css?body=1" for 127.0.0.1 at 2012-05-10 15:53:24 +0100
+Served asset /citygate/application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:24 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:24 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate/application.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:24 +0100
+Served asset /citygate/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2012-05-10 15:53:26 +0100
+
+
+Started GET "/users/auth/facebook/callback?code=AQBJePAg_LgmYjxdZzUV_T_YNPevz1Ve1fDPthmfm5pOK973maGjo-7EVZ9-t9WSng_zfW86m0-jt0kaNRzVExWGBui3hmhMMDprbNCT8Vw5VA5gnGO2nACPHJGwcFEzNOepHnxINDBBqVexhfg5CDz6uI9dLm3A5KB5kxL5vlXLJFHEg52lOvgjuzzsPjgM8dM" for 127.0.0.1 at 2012-05-10 15:53:28 +0100
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBJePAg_LgmYjxdZzUV_T_YNPevz1Ve1fDPthmfm5pOK973maGjo-7EVZ9-t9WSng_zfW86m0-jt0kaNRzVExWGBui3hmhMMDprbNCT8Vw5VA5gnGO2nACPHJGwcFEzNOepHnxINDBBqVexhfg5CDz6uI9dLm3A5KB5kxL5vlXLJFHEg52lOvgjuzzsPjgM8dM"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'nj_nets_kidd@hotmail.com' LIMIT 1[0m
+  [1m[35mAuthorization Load (0.2ms)[0m  SELECT "authorizations".* FROM "authorizations" WHERE "authorizations"."user_id" = 1 AND "authorizations"."provider" = 'Facebook' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2012-05-08 17:56:57.861501', "current_sign_in_at" = '2012-05-10 14:53:31.108506', "sign_in_count" = 3, "updated_at" = '2012-05-10 14:53:31.109155' WHERE "users"."id" = 1
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 172ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-10 15:53:31 +0100
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (2.0ms)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/citygate/application.css?body=1" for 127.0.0.1 at 2012-05-10 15:53:31 +0100
+Served asset /citygate/application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:31 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:31 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate/application.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:31 +0100
+Served asset /citygate/application.js - 304 Not Modified (1ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-05-10 15:53:33 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"l8Fy/BE7DsSojxTJhacPapo79AFHXi4zNdrMU7/boH8="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-10 15:53:33 +0100
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/home/index.html.erb within layouts/application (0.7ms)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (1.5ms)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/citygate/application.css?body=1" for 127.0.0.1 at 2012-05-10 15:53:33 +0100
+Served asset /citygate/application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:33 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:33 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate/application.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:33 +0100
+Served asset /citygate/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/auth/google" for 127.0.0.1 at 2012-05-10 15:53:37 +0100
+
+
+Started GET "/users/auth/google/callback?_method=post&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.mode=id_res&openid.op_endpoint=https%3A%2F%2Fwww.google.com%2Faccounts%2Fo8%2Fud&openid.response_nonce=2012-05-10T14%3A53%3A38Z_l4Y7y0N8Gcpbg&openid.return_to=http%3A%2F%2Flocalhost%3A3000%2Fusers%2Fauth%2Fgoogle%2Fcallback%3F_method%3Dpost&openid.assoc_handle=AMlYA9WFntTmV7WPMk4prni5hQqFo-_CHMJuSCo7Z3j4u57Uvzf93wXu&openid.signed=op_endpoint%2Cclaimed_id%2Cidentity%2Creturn_to%2Cresponse_nonce%2Cassoc_handle%2Cns.ext1%2Cext1.mode%2Cext1.type.ext2%2Cext1.value.ext2%2Cext1.type.ext0%2Cext1.value.ext0%2Cext1.type.ext3%2Cext1.value.ext3&openid.sig=2mem7nLHxTfxLAGugvySM1jqlNs%3D&openid.identity=https%3A%2F%2Fwww.google.com%2Faccounts%2Fo8%2Fid%3Fid%3DAItOawnXsx5KcYFHySB6dBdjOjIKpzFgUKEICY0&openid.claimed_id=https%3A%2F%2Fwww.google.com%2Faccounts%2Fo8%2Fid%3Fid%3DAItOawnXsx5KcYFHySB6dBdjOjIKpzFgUKEICY0&openid.ns.ext1=http%3A%2F%2Fopenid.net%2Fsrv%2Fax%2F1.0&openid.ext1.mode=fetch_response&openid.ext1.type.ext2=http%3A%2F%2Faxschema.org%2FnamePerson%2Ffirst&openid.ext1.value.ext2=Luis&openid.ext1.type.ext0=http%3A%2F%2Faxschema.org%2Fcontact%2Femail&openid.ext1.value.ext0=zamith.28%40gmail.com&openid.ext1.type.ext3=http%3A%2F%2Faxschema.org%2FnamePerson%2Flast&openid.ext1.value.ext3=Zamith+Ferreira" for 127.0.0.1 at 2012-05-10 15:53:38 +0100
+Processing by Users::OmniauthCallbacksController#google as HTML
+WARNING: Can't verify CSRF token authenticity
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'zamith.28@gmail.com' LIMIT 1
+  [1m[36mAuthorization Load (0.2ms)[0m  [1mSELECT "authorizations".* FROM "authorizations" WHERE "authorizations"."user_id" = 2 AND "authorizations"."provider" = 'Google' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2012-05-10 14:53:38.669788', "sign_in_count" = 2, "updated_at" = '2012-05-10 14:53:38.670475' WHERE "users"."id" = 2[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-10 15:53:38 +0100
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/home/index.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (2.0ms)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/citygate/application.css?body=1" for 127.0.0.1 at 2012-05-10 15:53:38 +0100
+Served asset /citygate/application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:38 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:38 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate/application.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:38 +0100
+Served asset /citygate/application.js - 304 Not Modified (0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-05-10 15:53:44 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ZQRzPRI0oZ6sCTo+E+VaNqaC+sLlWghDHDg+Xeut1V4="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-10 15:53:44 +0100
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" 
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/home/index.html.erb within layouts/application (0.7ms)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (1.4ms)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/citygate/application.css?body=1" for 127.0.0.1 at 2012-05-10 15:53:44 +0100
+Served asset /citygate/application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:44 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:44 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate/application.js?body=1" for 127.0.0.1 at 2012-05-10 15:53:44 +0100
+Served asset /citygate/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-10 15:54:42 +0100
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/home/index.html.erb within layouts/application (0.6ms)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (23.0ms)
+Completed 200 OK in 290ms (Views: 181.0ms | ActiveRecord: 16.9ms)
+
+
+Started GET "/assets/citygate/application.css?body=1" for 127.0.0.1 at 2012-05-10 15:54:42 +0100
+Served asset /citygate/application.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-10 15:54:42 +0100
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-10 15:54:42 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/citygate/application.js?body=1" for 127.0.0.1 at 2012-05-10 15:54:42 +0100
+Served asset /citygate/application.js - 304 Not Modified (5ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2012-05-10 15:54:46 +0100
+
+
+Started GET "/users/auth/facebook/callback?code=AQBN9hhaBQNBpcCYpkvA44O1R_cnJPTNUyGstlAdV738Ujp1RrBIkcIS1gId_p0IYvc33_8s1MVhYNXwaZgmG5It-7Sk9fS_906YgttCEa6DhD40Mjpshh54fmH3eK-ZCCyqueeQvcaHrymXWGLoUzF0Tm35cgJxDqfckhZc5ftvRlCaw8elAKteO_yGQZ_PQpc" for 127.0.0.1 at 2012-05-10 15:54:47 +0100
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBN9hhaBQNBpcCYpkvA44O1R_cnJPTNUyGstlAdV738Ujp1RrBIkcIS1gId_p0IYvc33_8s1MVhYNXwaZgmG5It-7Sk9fS_906YgttCEa6DhD40Mjpshh54fmH3eK-ZCCyqueeQvcaHrymXWGLoUzF0Tm35cgJxDqfckhZc5ftvRlCaw8elAKteO_yGQZ_PQpc"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'nj_nets_kidd@hotmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 FROM "users" WHERE "users"."email" = 'nj_nets_kidd@hotmail.com' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."confirmation_token" = 'Co2yh3yVkCBouByc7GiJ' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (5.8ms)[0m  INSERT INTO "users" ("confirmation_sent_at", "confirmation_token", "confirmed_at", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "invitation_accepted_at", "invitation_limit", "invitation_sent_at", "invitation_token", "invited_by_id", "invited_by_type", "last_sign_in_at", "last_sign_in_ip", "name", "password_salt", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "unconfirmed_email", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["confirmation_sent_at", Thu, 10 May 2012 14:54:49 UTC +00:00], ["confirmation_token", "Co2yh3yVkCBouByc7GiJ"], ["confirmed_at", nil], ["created_at", Thu, 10 May 2012 14:54:49 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "nj_nets_kidd@hotmail.com"], ["encrypted_password", "49147eb62f2ca4d4c3e44f682e9b9f9d6fa6fc23"], ["invitation_accepted_at", nil], ["invitation_limit", nil], ["invitation_sent_at", nil], ["invitation_token", nil], ["invited_by_id", nil], ["invited_by_type", nil], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", nil], ["password_salt", "VfQ6FavVRNFaHUeL3FgM"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["unconfirmed_email", nil], ["updated_at", Thu, 10 May 2012 14:54:49 UTC +00:00]]
+  Rendered /usr/local/rvm/gems/ruby-1.9.2-p180@gb201203/gems/devise-2.0.4/app/views/devise/mailer/confirmation_instructions.html.erb (1.1ms)
+
+Sent mail to nj_nets_kidd@hotmail.com (157ms)
+Date: Thu, 10 May 2012 15:54:50 +0100
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: nj_nets_kidd@hotmail.com
+Message-ID: <4fabd6b9f14f0_87e780443b3c8666e@dhc146.lsd.di.uminho.pt.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome nj_nets_kidd@hotmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=Co2yh3yVkCBouByc7GiJ">Confirm my account</a></p>
+
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mAuthorization Load (0.2ms)[0m  SELECT "authorizations".* FROM "authorizations" WHERE "authorizations"."user_id" = 3 AND "authorizations"."provider" = 'Facebook' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "authorizations" ("created_at", "image_url", "link", "name", "provider", "secret", "token", "uid", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", Thu, 10 May 2012 14:54:50 UTC +00:00], ["image_url", nil], ["link", nil], ["name", nil], ["provider", "Facebook"], ["secret", nil], ["token", nil], ["uid", nil], ["updated_at", Thu, 10 May 2012 14:54:50 UTC +00:00], ["user_id", 3]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mUPDATE "authorizations" SET "uid" = '754864768', "token" = 'AAAFgyOm83rkBACi46mN0qZCwiwxBhuWJADVhW1FoEyU8kIZA7XiSP9JoJqmN1p6eE7Cjl8jxAvV1ZB4I14L9EcKZC0wwuIYCHY7sh8KXCQZDZD', "name" = 'Luís Zamith Ferreira', "link" = 'http://www.facebook.com/luis.zamith', "image_url" = 'http://graph.facebook.com/754864768/picture?type=square', "updated_at" = '2012-05-10 14:54:50.122907' WHERE "authorizations"."id" = 3[0m
+  [1m[35m (1.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Completed 401 Unauthorized in 631ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-05-10 15:54:50 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered /usr/local/rvm/gems/ruby-1.9.2-p180@gb201203/gems/devise-2.0.4/app/views/devise/_links.erb (6.3ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.2-p180@gb201203/gems/devise-2.0.4/app/views/devise/sessions/new.html.erb within layouts/application (13.9ms)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (1.5ms)
+Completed 200 OK in 28ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/citygate/application.css?body=1" for 127.0.0.1 at 2012-05-10 15:54:50 +0100
+Served asset /citygate/application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-10 15:54:50 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-10 15:54:50 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate/application.js?body=1" for 127.0.0.1 at 2012-05-10 15:54:50 +0100
+Served asset /citygate/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=Co2yh3yVkCBouByc7GiJ" for 127.0.0.1 at 2012-05-10 15:55:02 +0100
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"Co2yh3yVkCBouByc7GiJ"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."confirmation_token" = 'Co2yh3yVkCBouByc7GiJ' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mUPDATE "users" SET "confirmation_token" = NULL, "confirmed_at" = '2012-05-10 14:55:02.557261', "updated_at" = '2012-05-10 14:55:02.557731' WHERE "users"."id" = 3[0m
+  [1m[35m (11.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2012-05-10 14:55:02.571256', "current_sign_in_at" = '2012-05-10 14:55:02.571256', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2012-05-10 14:55:02.571840' WHERE "users"."id" = 3
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/auth/facebook/callback?code=AQBN9hhaBQNBpcCYpkvA44O1R_cnJPTNUyGstlAdV738Ujp1RrBIkcIS1gId_p0IYvc33_8s1MVhYNXwaZgmG5It-7Sk9fS_906YgttCEa6DhD40Mjpshh54fmH3eK-ZCCyqueeQvcaHrymXWGLoUzF0Tm35cgJxDqfckhZc5ftvRlCaw8elAKteO_yGQZ_PQpc
+Completed 302 Found in 37ms (ActiveRecord: 14.0ms)
+
+
+Started GET "/users/auth/facebook/callback?code=AQBN9hhaBQNBpcCYpkvA44O1R_cnJPTNUyGstlAdV738Ujp1RrBIkcIS1gId_p0IYvc33_8s1MVhYNXwaZgmG5It-7Sk9fS_906YgttCEa6DhD40Mjpshh54fmH3eK-ZCCyqueeQvcaHrymXWGLoUzF0Tm35cgJxDqfckhZc5ftvRlCaw8elAKteO_yGQZ_PQpc" for 127.0.0.1 at 2012-05-10 15:55:02 +0100
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQBN9hhaBQNBpcCYpkvA44O1R_cnJPTNUyGstlAdV738Ujp1RrBIkcIS1gId_p0IYvc33_8s1MVhYNXwaZgmG5It-7Sk9fS_906YgttCEa6DhD40Mjpshh54fmH3eK-ZCCyqueeQvcaHrymXWGLoUzF0Tm35cgJxDqfckhZc5ftvRlCaw8elAKteO_yGQZ_PQpc"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mAuthorization Load (0.2ms)[0m  [1mSELECT "authorizations".* FROM "authorizations" WHERE "authorizations"."user_id" = 3 AND "authorizations"."provider" = 'Facebook' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-10 15:55:04 +0100
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/home/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (2.2ms)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/citygate/application.css?body=1" for 127.0.0.1 at 2012-05-10 15:55:04 +0100
+Served asset /citygate/application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-10 15:55:04 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-10 15:55:04 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate/application.js?body=1" for 127.0.0.1 at 2012-05-10 15:55:04 +0100
+Served asset /citygate/application.js - 304 Not Modified (0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2012-05-10 15:55:07 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zic1EgHvnArxABnwKEMacIMUck4L9OVTDwLc+DZxvdU="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-10 15:55:07 +0100
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/home/index.html.erb within layouts/application (0.6ms)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (1.3ms)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/citygate/application.css?body=1" for 127.0.0.1 at 2012-05-10 15:55:07 +0100
+Served asset /citygate/application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-10 15:55:07 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-10 15:55:07 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate/application.js?body=1" for 127.0.0.1 at 2012-05-10 15:55:07 +0100
+Served asset /citygate/application.js - 304 Not Modified (0ms)

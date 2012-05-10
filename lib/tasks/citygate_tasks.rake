@@ -1,4 +1,4 @@
-# desc "Explaining what the task does"
+#desc "Copy "
 # task :citygate do
 #   # Task goes here
 # end

@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.name        = "citygate"
   s.version     = Citygate::VERSION
   s.authors     = ["Group Buddies"]
-  s.email       = ["regedor@groupbuddies.com"]
+  s.email       = ["zamith@groupbuddies.com"]
   s.summary     = "Simple authentication and user management Engine."
   s.description = "Citygate is an Engine that provides user model with sign up and log in, admin backend for managing users and a simple comunication system."
 
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency "devise_invitable",   ">= 1.0.0"
   s.add_dependency "bootstrap-sass",     "~> 2.0.1"
   
+  s.add_development_dependency "thin",               ">= 1.3.1"  
   s.add_development_dependency     "haml-rails", ">= 0.3.4"
   s.add_development_dependency     "rspec-rails", ">= 2.8.1"
   s.add_development_dependency     "guard", ">= 0.6.2"

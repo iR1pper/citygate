@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'email_spec'
 require 'rspec/autorun'
 require 'factory_girl'
+require 'devise/test_helpers'
 FactoryGirl.find_definitions
 
 ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
@@ -12,6 +13,8 @@ ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[File.join(ENGINE_RAILS_ROOT, 'spec/support/**/*.rb')].each {|f| require f }
+
+RACK_ENV = ENV['ENVIRONMENT'] ||= 'test'
 
 RSpec.configure do |config|
   config.include(EmailSpec::Helpers)
@@ -39,7 +42,7 @@ RSpec.configure do |config|
 end
 
 OmniAuth.config.test_mode = true
-OmniAuth.config.mock_auth[:facebook] = {
+OmniAuth.config.add_mock(:facebook, {
   "uid" => "10",
   "credentials" => {
     "token" => "1234567890"
@@ -54,7 +57,7 @@ OmniAuth.config.mock_auth[:facebook] = {
   "info" => {
     "image" => "/path/to/image"
   }
-}
+})
 
 OmniAuth.config.mock_auth[:google] = {
   "uid" => "10",
@@ -66,3 +69,4 @@ OmniAuth.config.mock_auth[:google] = {
     "name" => "zamith"
   }
 }
+

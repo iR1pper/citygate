@@ -54,3 +54,7 @@ gem "guard-cucumber", ">= 0.6.1", :group => :development
 gem "devise", ">= 2.0.4"
 gem "devise_invitable", ">= 1.0.0"
 gem "bootstrap-sass", "~> 2.0.1"
+gem 'omniauth', "~> 1.0.2"
+gem 'omniauth-facebook', "~> 1.2.0"
+gem 'omniauth-openid', "~> 1.0.1"
+gem 'uuidtools',  "~> 2.1.2"
