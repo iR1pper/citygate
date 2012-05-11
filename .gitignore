@@ -17,6 +17,9 @@ spec/tmp/*
 spec/dummy/tmp/*
 *.gem
 
+# RVM ignores
+.rvmc
+
 # Linux ignores
 .*
 *~
