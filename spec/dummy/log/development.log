@@ -12429,3 +12429,239 @@ Served asset /jquery_ujs.js - 304 Not Modified (0ms)
 
 Started GET "/assets/citygate/application.js?body=1" for 127.0.0.1 at 2012-05-10 15:55:07 +0100
 Served asset /citygate/application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-11 14:56:41 +0100
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/home/index.html.erb within layouts/citygate (22.1ms)
+Compiled citygate/application.css  (694ms)  (pid 76548)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (2.1ms)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/layouts/citygate_layout.html.erb within layouts/application (917.4ms)
+Compiled application.css  (0ms)  (pid 76548)
+Compiled application.js  (56ms)  (pid 76548)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (1.3ms)
+Completed 200 OK in 1505ms (Views: 1348.9ms | ActiveRecord: 50.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-11 14:56:42 +0100
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-11 14:56:43 +0100
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-11 14:56:43 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-11 14:56:43 +0100
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/citygate/application.css?body=1" for 127.0.0.1 at 2012-05-11 14:56:43 +0100
+Served asset /citygate/application.css - 200 OK (74ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-11 14:59:28 +0100
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/home/index.html.erb within layouts/citygate (22.7ms)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (2.1ms)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/layouts/citygate_layout.html.erb within layouts/application (22.8ms)
+Completed 500 Internal Server Error in 322ms
+
+ActionView::Template::Error (wrong number of arguments (0 for 2..3)):
+    8:   <%= yield :head %>
+    9: </head>
+    10: <body>
+    11:   <% if ENV['RAILS_ENV'] == test %>
+    12:     <div id="container" class="container">
+    13:       <header>
+    14:         <h1>NORMAL PANEL</h1>
+  /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/layouts/application.html.erb:11:in `test'
+  /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/layouts/application.html.erb:11:in `___sers_luis__ode__uby__roup_uddies_citygate_app_views_layouts_application_html_erb___41585698284446512_2183696680'
+  actionpack (3.2.3) lib/action_view/template.rb:143:in `block in render'
+  activesupport (3.2.3) lib/active_support/notifications.rb:125:in `instrument'
+  actionpack (3.2.3) lib/action_view/template.rb:141:in `render'
+  actionpack (3.2.3) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+  actionpack (3.2.3) lib/action_view/renderer/template_renderer.rb:45:in `render_template'
+  actionpack (3.2.3) lib/action_view/renderer/template_renderer.rb:18:in `render'
+  actionpack (3.2.3) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.3) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.3) lib/action_view/helpers/rendering_helper.rb:24:in `render'
+  /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/layouts/citygate.html.erb:1:in `___sers_luis__ode__uby__roup_uddies_citygate_app_views_layouts_citygate_html_erb___2747310716586261349_2183744460'
+  actionpack (3.2.3) lib/action_view/template.rb:143:in `block in render'
+  activesupport (3.2.3) lib/active_support/notifications.rb:125:in `instrument'
+  actionpack (3.2.3) lib/action_view/template.rb:141:in `render'
+  actionpack (3.2.3) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+  actionpack (3.2.3) lib/action_view/renderer/template_renderer.rb:45:in `render_template'
+  actionpack (3.2.3) lib/action_view/renderer/template_renderer.rb:18:in `render'
+  actionpack (3.2.3) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.3) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.3) lib/abstract_controller/rendering.rb:110:in `_render_template'
+  actionpack (3.2.3) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.3) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.3) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.3) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.3) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.3) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.3) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.2.3) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /usr/local/rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+  activesupport (3.2.3) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.3) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.2.3) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.3) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  actionpack (3.2.3) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.3) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.3) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (3.2.3) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.3) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.3) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:414:in `_run__886100931815006491__process_action__3207931471132661702__callbacks'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.3) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.3) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.3) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.3) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.3) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.3) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.3) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.3) lib/action_controller/metal/params_wrapper.rb:205:in `process_action'
+  activerecord (3.2.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.3) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.3) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.3) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.3) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.3) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.3) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (3.2.3) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.3) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.3) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.3) lib/journey/router.rb:56:in `each'
+  journey (1.0.3) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.3) lib/action_dispatch/routing/route_set.rb:600:in `call'
+  omniauth (1.0.3) lib/omniauth/strategy.rb:168:in `call!'
+  omniauth (1.0.3) lib/omniauth/strategy.rb:148:in `call'
+  omniauth (1.0.3) lib/omniauth/strategy.rb:168:in `call!'
+  omniauth (1.0.3) lib/omniauth/strategy.rb:148:in `call'
+  warden (1.1.1) lib/warden/manager.rb:35:in `block in call'
+  warden (1.1.1) lib/warden/manager.rb:34:in `catch'
+  warden (1.1.1) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.1) lib/rack/etag.rb:23:in `call'
+  rack (1.4.1) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:205:in `context'
+  rack (1.4.1) lib/rack/session/abstract/id.rb:200:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/cookies.rb:338:in `call'
+  activerecord (3.2.3) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:467:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:405:in `_run__2967314184092624831__call__3143005028530416729__callbacks'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.3) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.3) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.3) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.3) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.3) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.3) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.3) lib/rails/engine.rb:479:in `call'
+  railties (3.2.3) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.3) lib/rails/rack/log_tailer.rb:14:in `call'
+  thin (1.3.1) lib/thin/connection.rb:80:in `block in pre_process'
+  thin (1.3.1) lib/thin/connection.rb:78:in `catch'
+  thin (1.3.1) lib/thin/connection.rb:78:in `pre_process'
+  thin (1.3.1) lib/thin/connection.rb:53:in `process'
+  thin (1.3.1) lib/thin/connection.rb:38:in `receive_data'
+  eventmachine (0.12.10) lib/eventmachine.rb:256:in `run_machine'
+  eventmachine (0.12.10) lib/eventmachine.rb:256:in `run'
+  thin (1.3.1) lib/thin/backends/base.rb:61:in `start'
+  thin (1.3.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.3) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.3) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.3) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.3) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /usr/local/rvm/gems/ruby-1.9.2-p180@gb201203/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.3ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.2-p180@gb201203/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-1.9.2-p180@gb201203/gems/actionpack-3.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-11 14:59:51 +0100
+Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" 
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/home/index.html.erb within layouts/citygate (0.5ms)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (1.1ms)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/layouts/citygate_layout.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-11 14:59:51 +0100
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-11 14:59:51 +0100
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-11 14:59:51 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/citygate/application.css?body=1" for 127.0.0.1 at 2012-05-11 14:59:51 +0100
+Served asset /citygate/application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-11 14:59:51 +0100
+Served asset /application.js - 304 Not Modified (13ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-05-11 15:03:00 +0100
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/home/index.html.erb within layouts/citygate (22.9ms)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/shared/_navigation.html.erb (2.2ms)
+  Rendered /Users/luis/Code/Ruby/GroupBuddies/citygate/app/views/layouts/citygate_layout.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 289ms (Views: 119.8ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-05-11 15:03:01 +0100
+Served asset /application.css - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-05-11 15:03:01 +0100
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-05-11 15:03:01 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-05-11 15:03:01 +0100
+Served asset /application.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/citygate/application.css?body=1" for 127.0.0.1 at 2012-05-11 15:03:01 +0100
+Served asset /citygate/application.css - 200 OK (2ms)
