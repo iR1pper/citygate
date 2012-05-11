@@ -18,7 +18,7 @@ spec/dummy/tmp/*
 *.gem
 
 # RVM ignores
-.rvmc
+.rvmrc
 
 # Linux ignores
 .*
@@ -47,6 +47,7 @@ tmtags
 db/*.sqlite3
 /log/*.log
 /tmp
+*.log
 
 # various artifacts
 **.war
