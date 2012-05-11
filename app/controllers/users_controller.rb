@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < Citygate::CitygateController
   before_filter :authenticate_user!
 
   def show
