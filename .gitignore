@@ -21,7 +21,6 @@ spec/dummy/tmp/*
 .rvmrc
 
 # Linux ignores
-.*
 *~
 *.sw[a-p]
 .directory

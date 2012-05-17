@@ -15,10 +15,12 @@ def create_unconfirmed_user
   sign_up
 end
 
-def create_user
-  create_visitor
-  delete_user
-  @user = Factory.create(:user, email: @visitor[:email])
+def create_or_get_user
+  @user ||= lambda do
+     create_visitor
+     delete_user
+     Factory.create(:user, email: @visitor[:email])
+  end.call
 end
 
 def delete_user
@@ -49,12 +51,12 @@ Given /^I am not logged in$/ do
 end
 
 Given /^I am logged in$/ do
-  create_user
+  create_or_get_user
   sign_in
 end
 
 Given /^I exist as a user$/ do
-  create_user
+  create_or_get_user
 end
 
 Given /^I do not exist as a user$/ do
@@ -68,6 +70,11 @@ end
 
 Given /^I am on the login page$/ do
   visit root_path
+end
+
+Given /^I do not have an? (.*)$/ do |attribute|
+  create_or_get_user
+  @user[attribute] = nil
 end
 
 ### WHEN ###
@@ -193,9 +200,22 @@ Then /^I should see an account edited message$/ do
   page.should have_content "You updated your account successfully."
 end
 
-Then /^I should see my name$/ do
-  create_user
-  page.should have_content @user[:name]
+Then /^I should (not )?see my (.*)$/ do |nonexistent, attribute|
+  create_or_get_user
+  if nonexistent
+    page.should_not have_content @user[attribute]
+  else
+    page.should have_content @user[attribute]
+  end
+end
+
+Then /^the element with (class |id )(.*) should (not )?exist$/ do |type, name, nonexistent|
+  selector = %Q{#{(type.strip == 'class') ? '.' : '#'}#{name}}
+  if nonexistent
+    page.should_not have_css selector
+  else
+    page.should have_css selector
+  end
 end
 
 Then /^I can see (.*)$/ do |text|

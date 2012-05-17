@@ -2,7 +2,9 @@
   <% @users.each do |user| %>
     <div class="user">
       <span class="email"><%= user.email %></span>
-      <span class="name"><%= user.name %></span>
+      <%= content_tag(:span, user.name) if user.name %>
     </div>
   <% end %>
+
+  <%= will_paginate @users %>
 </div>
