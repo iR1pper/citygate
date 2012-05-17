@@ -45,7 +45,7 @@ end
 
 ### GIVEN ###
 Given /^I am not logged in$/ do
-  page.should_not have_link('Logout')
+  page.should_not have_link('Log out')
 end
 
 Given /^I am logged in$/ do
@@ -77,7 +77,7 @@ When /^I sign in with valid credentials$/ do
 end
 
 When /^I sign out$/ do
-  click_link 'Logout'
+  click_link 'Log out'
 end
 
 When /^I sign up with valid user data$/ do
@@ -130,7 +130,7 @@ When /^I edit my account details$/ do
 end
 
 When /^I look at the list of users$/ do
-  visit '/'
+  visit '/admin/users'
 end
 
 When /^I click (.*)$/ do |link|
@@ -139,9 +139,9 @@ end
 
 ### THEN ###
 Then /^I should be signed in$/ do
-  page.should have_content "Logout"
+  page.should have_content "Log out"
   page.should_not have_content "Sign up"
-  page.should_not have_content "Login"
+  page.should_not have_content "Log in"
 end
 
 Then /^I should be signed in with (.*)$/ do |provider|
@@ -150,8 +150,7 @@ end
 
 Then /^I should be signed out$/ do
   page.should have_content "Sign up"
-  page.should have_content "Login"
-  page.should_not have_content "Logout"
+  page.should_not have_content "Log out"
 end
 
 Then /^I see an unconfirmed account message$/ do

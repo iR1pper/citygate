@@ -1,4 +1,4 @@
-class HomeController < Citygate::CitygateController
+class HomeController < ApplicationController
   def index
     @users = User.all
   end

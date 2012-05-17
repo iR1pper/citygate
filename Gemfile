@@ -16,4 +16,3 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'devise-encryptable'

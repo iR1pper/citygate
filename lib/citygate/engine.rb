@@ -1,5 +1,17 @@
-require "citygate"
 require "rails"
+
+require "rubygems"
+require "devise"
+require "devise"
+require "devise_invitable"
+require "devise-encryptable"
+require 'omniauth'
+require 'omniauth-facebook'
+require 'omniauth-openid'
+require 'uuidtools'
+require 'will_paginate'
+
+require "citygate"
 
 module Citygate
   def self.root
@@ -9,12 +21,3 @@ module Citygate
   class Engine < ::Rails::Engine
   end
 end
-
-require "rubygems"
-require "devise"
-require "devise"
-require "devise_invitable"
-require 'omniauth'
-require 'omniauth-facebook'
-require 'omniauth-openid'
-require 'uuidtools'
