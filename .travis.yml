@@ -1,0 +1,5 @@
+script: cd spec/dummy ; rake spec 
+rvm:
+  - 1.9.2
+gemfile:
+  - Gemfile
