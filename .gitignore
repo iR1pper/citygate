@@ -7,7 +7,7 @@ capybara-*.html
 Gemfile.lock
 log/*
 tmp/*
-db/*.sqlite3
+*.sqlite3
 db/schema.rb
 vendor/bundle
 public/spec.html
