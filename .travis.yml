@@ -1,4 +1,4 @@
-script: cd spec/dummy ; rake spec 
+script: cd spec/dummy ; rake travis 
 rvm:
   - 1.9.2
 gemfile:
