@@ -1,8 +1,8 @@
 require "citygate/engine"
 
 module Citygate
-  require "#{File.join(Citygate.root,'lib/app_controller_helpers')}"
-    
+  Dir["#{Citygate.root}/lib/*.rb"].each {|file| require file}
+
   ActiveSupport.on_load(:action_controller) do
     extend AppControllerHelpers::ClassMethods
     include AppControllerHelpers::InstanceMethods

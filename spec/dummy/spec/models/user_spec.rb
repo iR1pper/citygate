@@ -11,6 +11,16 @@ describe User do
     }
   end
   
+  it "should render the correct json hash" do
+    fb_user = Factory.create(:facebook_user)
+    fb_user.as_json.should == {
+      :email => "example@example.com",
+      :name  => "Testy McTest",
+      :link  => "http://www.facebook.com/luis.zamith",
+      :image => "http://graph.facebook.com/754864768/picture?type=square"
+    }
+  end
+  
   it "should create a new instance given a valid attribute" do
     User.create!(@attr)
   end
