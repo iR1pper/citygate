@@ -31,25 +31,6 @@ Gem::Specification.new do |s|
   
   s.add_development_dependency     "thin", ">= 1.3.1"  
   s.add_development_dependency     "haml-rails", ">= 0.3.4"
-  s.add_development_dependency     "guard", ">= 0.6.2"
-  case HOST_OS
-    when /darwin/i
-      s.add_development_dependency 'rb-fsevent'
-      s.add_development_dependency 'growl'
-    when /linux/i
-      s.add_development_dependency 'libnotify'
-      s.add_development_dependency 'rb-inotify'
-    when /mswin|windows/i
-      s.add_development_dependency 'rb-fchange'
-      s.add_development_dependency 'win32console'
-      s.add_development_dependency 'rb-notifu'
-  end
-  s.add_development_dependency     "guard-bundler",    ">= 0.1.3"
-  s.add_development_dependency     "guard-rails",      ">= 0.0.3"
-  s.add_development_dependency     "guard-livereload", ">= 0.3.0"
-  s.add_development_dependency     "guard-rspec",      ">= 0.4.3"
-  s.add_development_dependency     "guard-cucumber",   ">= 0.6.1"
-  
   s.add_development_dependency     "rspec-rails",      ">= 2.8.1"
   s.add_development_dependency     "email_spec",       ">= 1.2.1"
   s.add_development_dependency     "factory_girl",     "2.6.4"
