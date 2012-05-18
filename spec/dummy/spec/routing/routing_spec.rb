@@ -4,8 +4,8 @@ describe "routing" do
   
   context "admin users" do
     
-    it "should have a route to list the users in html and it should be the default" do
-      { get: admin_users_path }.should route_to({controller: "admin/users", action: "index", format: "html"})
+    it "should have a route to list the users in html" do
+      { get: admin_users_path }.should route_to({controller: "admin/users", action: "index"})
     end
     
     it "should have a route to list the users in json" do

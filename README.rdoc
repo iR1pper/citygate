@@ -1,3 +1,3 @@
-= Citygate
+= Citygate {<img src="https://secure.travis-ci.org/zamith/citygate.png" />}[http://travis-ci.org/zamith/citygate]
 
 This project rocks and uses MIT-LICENSE.
