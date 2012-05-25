@@ -21,6 +21,7 @@ spec/dummy/db/*.sqlite3
 pkg/*
 spec/dummy/db/development.sqlite3
 spec/dummy/db/test.sqlite3
+.yardoc
 
 # RVM ignores
 .rvmrc
