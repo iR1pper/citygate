@@ -2,7 +2,7 @@
   <%= stylesheet_link_tag 'citygate/application' %>
 <% end %>
 
-<%= render 'shared/navigation' %>
+<%= render 'citygate/shared/navigation' %>
 
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>

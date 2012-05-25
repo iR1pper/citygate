@@ -10,8 +10,7 @@ require 'omniauth-facebook'
 require 'omniauth-openid'
 require 'uuidtools'
 require 'will_paginate'
-
-require "citygate"
+require 'cancan'
 
 module Citygate
   def self.root
@@ -19,5 +18,6 @@ module Citygate
   end
 
   class Engine < ::Rails::Engine
+    isolate_namespace Citygate
   end
 end

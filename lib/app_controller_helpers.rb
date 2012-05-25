@@ -4,17 +4,16 @@ module AppControllerHelpers
   end
   
   module InstanceMethods
-    # Devise hack
-    def stored_location_for(resource_or_scope)
-      root_url
+    def self.included(clazz)
+      clazz.class_exec do
+        rescue_from CanCan::AccessDenied do |exception|
+          redirect_to root_url, :alert => exception.message
+        end
+      end
     end
-
-    def after_sign_in_path_for(resource)
-      # This should work, but session is lost. See https://github.com/plataformatec/devise/issues/1357
-      # return_to = session[:return_to]
-      # session[:return_to] = nil
-      return_to = request.env['omniauth.origin']
-      stored_location_for(resource) || return_to || root_path
-    end 
+    
+    def current_ability
+      @current_ability ||= Citygate::Ability.new(current_user)
+    end
   end
 end

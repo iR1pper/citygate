@@ -4,9 +4,14 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
+ENV['RAILS_ENV']  ||= 'test'
+
 require 'email_spec'
 require 'email_spec/cucumber'
 require 'cucumber/rails'
+require 'cucumber/rails/rspec'
+require 'cucumber/rails/world'
+
 require 'factory_girl'
 FactoryGirl.find_definitions
 
@@ -89,3 +94,5 @@ OmniAuth.config.mock_auth[:google] = {
     "name" => "zamith"
   }
 }
+
+load "#{Rails.root}/db/seeds.rb"

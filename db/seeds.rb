@@ -5,6 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-puts 'SETTING UP DEFAULT USER LOGIN'
-user = User.create! :name => 'First User', :email => 'user@example.com', :password => 'please', :password_confirmation => 'please', :confirmed_at => DateTime.now
-puts 'New user created: ' << user.name
+
+puts 'SETTING UP ROLES...'
+roles = [ 
+  {:name => "Member"},
+  {:name => "Admin"}
+]
+
+roles.each do |attributes| 
+  Citygate::Role.find_or_initialize_by_name(attributes[:name]).save!
+end

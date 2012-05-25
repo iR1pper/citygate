@@ -6,7 +6,7 @@ def create_visitor
 end
 
 def find_user
-  @user ||= User.first conditions: {:email => @visitor[:email]}
+  @user ||= Citygate::User.first conditions: {:email => @visitor[:email]}
 end
 
 def create_unconfirmed_user
@@ -21,10 +21,13 @@ def create_or_get_user
      delete_user
      Factory.create(:user, email: @visitor[:email])
   end.call
+  @user.confirmation_sent_at = Time.now
+  @user.save
+  return @user
 end
 
 def delete_user
-  @user ||= User.first conditions: {:email => @visitor[:email]}
+  @user ||= Citygate::User.first conditions: {:email => @visitor[:email]}
   @user.destroy unless @user.nil?
 end
 
@@ -53,6 +56,12 @@ end
 Given /^I am logged in$/ do
   create_or_get_user
   sign_in
+end
+
+Given /^I am an admin$/ do
+  create_or_get_user
+  @user.role_id = 2
+  @user.save
 end
 
 Given /^I exist as a user$/ do

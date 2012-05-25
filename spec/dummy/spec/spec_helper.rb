@@ -71,3 +71,5 @@ OmniAuth.config.mock_auth[:google] = {
   }
 }
 
+load "#{Rails.root}/db/seeds.rb"
+

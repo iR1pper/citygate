@@ -1,6 +1,6 @@
 class DeviseInvitableAddToUsers < ActiveRecord::Migration
   def up
-    change_table :users do |t|
+    change_table :citygate_users do |t|
       t.string     :invitation_token, :limit => 60
       t.datetime   :invitation_sent_at
       t.datetime   :invitation_accepted_at
@@ -11,11 +11,11 @@ class DeviseInvitableAddToUsers < ActiveRecord::Migration
     end
 
     # And allow null encrypted_password and password_salt:
-    change_column_null :users, :encrypted_password, true
+    change_column_null :citygate_users, :encrypted_password, true
   end
 
   def down
-    change_table :users do |t|
+    change_table :citygate_users do |t|
       t.remove_references :invited_by, :polymorphic => true
       t.remove :invitation_limit, :invitation_sent_at, :invitation_accepted_at, :invitation_token
     end

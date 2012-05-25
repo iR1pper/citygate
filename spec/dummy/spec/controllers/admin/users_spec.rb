@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Admin::UsersController do
+describe Citygate::Admin::UsersController do
   
   before (:each) do
     @user = Factory.create(:user)

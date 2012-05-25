@@ -1,4 +1,4 @@
-Factory.define :user do |f|
+Factory.define :user, :class => "Citygate::User" do |f|
   f.name                  'Test User'
   f.email                 'example@example.com'
   f.password              'please'
@@ -8,7 +8,7 @@ Factory.define :user do |f|
   f.confirmed_at           Time.now
 end
 
-Factory.define :facebook_auth, :class => "Authorization" do |f|
+Factory.define :facebook_auth, :class => "Citygate::Authorization" do |f|
   f.provider   'Facebook'
   f.uid        '28'
   f.name       'Testy McTest'
@@ -16,7 +16,7 @@ Factory.define :facebook_auth, :class => "Authorization" do |f|
   f.image_url  'http://graph.facebook.com/754864768/picture?type=square'
 end
 
-Factory.define :google_auth, :class => "Authorization" do |f|
+Factory.define :google_auth, :class => "Citygate::Authorization" do |f|
   f.provider   'Google'
   f.uid        '28'
   f.name       'Testy McTest'

@@ -1,7 +1,7 @@
-# This migration comes from citygate_engine (originally 20120303195052)
+# This migration comes from citygate (originally 20120303195052)
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
-    create_table(:users) do |t|
+    create_table(:citygate_users) do |t|
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
@@ -41,8 +41,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :users, :email,                :unique => true
-    add_index :users, :reset_password_token, :unique => true
+    add_index :citygate_users, :email,                :unique => true
+    add_index :citygate_users, :reset_password_token, :unique => true
     # add_index :users, :confirmation_token,   :unique => true
     # add_index :users, :unlock_token,         :unique => true
     # add_index :users, :authentication_token, :unique => true

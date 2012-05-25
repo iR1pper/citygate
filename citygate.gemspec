@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-openid",    "~> 1.0.1"
   s.add_dependency "uuidtools",          ">= 2.1.2"
   s.add_dependency "will_paginate",      ">= 3.0.3"
+  s.add_dependency "cancan",             ">= 1.6.7"
   
   s.add_development_dependency     "thin", ">= 1.3.1"  
   s.add_development_dependency     "haml-rails", ">= 0.3.4"

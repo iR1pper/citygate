@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Users::OmniauthCallbacksController do
+describe Citygate::Users::OmniauthCallbacksController do
 
   shared_examples "a provider for" do |provider|
     describe "provider" do
@@ -12,13 +12,13 @@ describe Users::OmniauthCallbacksController do
       it "should create a new user" do
         lambda {
           get provider
-        }.should change(User,:count).by(1)
+        }.should change(Citygate::User,:count).by(1)
       end
       
       it "should create a new authorization" do
         lambda {
           get provider
-        }.should change(Authorization,:count).by(1)
+        }.should change(Citygate::Authorization,:count).by(1)
       end
       
       context "not database" do
@@ -31,7 +31,7 @@ describe Users::OmniauthCallbacksController do
         end
         
         it "should create a authorization for the right user" do
-          assigns(:user).id.should == Authorization.last.user_id
+          assigns(:user).id.should == Citygate::Authorization.last.user_id
         end    
         
         it "should create a user with the correct email" do

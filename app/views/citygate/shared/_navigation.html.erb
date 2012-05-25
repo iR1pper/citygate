@@ -8,8 +8,8 @@
 
     <li><%= link_to('Sign up', new_user_registration_path) %></li>
 
-    <% User.omniauth_providers.each do |provider| %>
-      <li><%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(User.new, provider) %></li>
+    <% Citygate::User.omniauth_providers.each do |provider| %>
+      <li><%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(Citygate::User.new, provider) %></li>
     <% end -%>
   <% end %>
 </ul>

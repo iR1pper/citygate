@@ -1,4 +1,5 @@
 module NavigationHelpers
+  include Citygate::Engine.routes.url_helpers
   # Maps a name to a path. Used by the
   #
   #   When /^I go to (.+)$/ do |page_name|

@@ -1,4 +1,4 @@
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
     oauthorize "Facebook"
@@ -77,27 +77,27 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def find_for_oauth_by_uid(uid, resource=nil)
     user = nil
-    if auth = Authorization.find_by_uid(uid.to_s)
+    if auth = Citygate::Authorization.find_by_uid(uid.to_s)
       user = auth.user
     end
     return user
   end
 
   def find_for_oauth_by_email(email, resource=nil)
-    if user = User.find_by_email(email)
+    if user = Citygate::User.find_by_email(email)
       user
     else
-      user = User.new(:email => email, :password => Devise.friendly_token[0,20]) 
+      user = Citygate::User.new(:email => email, :password => Devise.friendly_token[0,20]) 
       user.save
     end
     return user
   end
   
   def find_for_oauth_by_name(name, resource=nil)
-    if user = User.find_by_name(name)
+    if user = Citygate::User.find_by_name(name)
       user
     else
-      user = User.new(:name => name, :password => Devise.friendly_token[0,20], :email => "#{UUIDTools::UUID.random_create}@host")
+      user = Citygate::User.new(:name => name, :password => Devise.friendly_token[0,20], :email => "#{UUIDTools::UUID.random_create}@host")
       user.save false
     end
     return user
