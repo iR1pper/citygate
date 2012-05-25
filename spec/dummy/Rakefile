@@ -16,7 +16,7 @@ RSpec::Core::RakeTask.new(:spec)
 task :default => :spec
 
 task :jasmine do
-  system("bundle exec jasmine-headless-webkit --color")
+  system("jasmine-headless-webkit --color")
 end
 
 task :travis do
