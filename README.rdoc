@@ -1,3 +1,5 @@
 = Citygate {<img src="https://secure.travis-ci.org/zamith/citygate.png" />}[http://travis-ci.org/zamith/citygate]
 
-This project rocks and uses MIT-LICENSE.
+Citygate is a rails engine that provides your application with user authentication (on the site or through facebook or google) using Devise and fully customizable authorization using CanCan.
+
+It also provides a customizable backend for administrating all your users, using pjax and pushState making your website as fast as responsive as you ever wanted it to be.

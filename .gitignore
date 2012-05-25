@@ -18,6 +18,9 @@ spec/dummy/tmp/*
 *.gem
 spec/dummy/.jhw-cache/*
 spec/dummy/db/*.sqlite3
+pkg/*
+spec/dummy/db/development.sqlite3
+spec/dummy/db/test.sqlite3
 
 # RVM ignores
 .rvmrc
