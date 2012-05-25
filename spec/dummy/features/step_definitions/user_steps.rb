@@ -1,5 +1,9 @@
 ### UTILITY METHODS ###
 
+def current_path
+  URI.parse(current_url).path
+end
+
 def create_visitor
   @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
     :password => "please", :password_confirmation => "please" }
@@ -77,8 +81,8 @@ Given /^I exist as an unconfirmed user$/ do
   create_unconfirmed_user
 end
 
-Given /^I am on the login page$/ do
-  visit root_path
+Given /^I am on (.*)$/ do |path|
+  visit path_to(path)
 end
 
 Given /^I do not have an? (.*)$/ do |attribute|
@@ -153,6 +157,10 @@ When /^I click (.*)$/ do |link|
   click_link link
 end
 
+When /^I go back in history$/ do
+  page.execute_script("history.back()")
+end
+
 ### THEN ###
 Then /^I should be signed in$/ do
   page.should have_content "Log out"
@@ -218,6 +226,10 @@ Then /^I should (not )?see my (.*)$/ do |nonexistent, attribute|
   end
 end
 
+Then /^I should see the (.*) of user number (.*)$/ do |attribute,id|
+  page.should have_content Citygate::User.find(id)[attribute]
+end
+
 Then /^the element with (class |id )(.*) should (not )?exist$/ do |type, name, nonexistent|
   selector = %Q{#{(type.strip == 'class') ? '.' : '#'}#{name}}
   if nonexistent
@@ -229,4 +241,8 @@ end
 
 Then /^I can see (.*)$/ do |text|
   has_link?(text).should be_true
+end
+
+Then /^I should be redirected to (.*)$/ do |path|
+  current_path.should == path_to(path)
 end

@@ -39,4 +39,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency     "capybara",         ">= 1.1.2"
   s.add_development_dependency     "database_cleaner", ">= 0.7.1"
   s.add_development_dependency     "launchy",          ">= 2.0.5"
+  s.add_development_dependency     "jasmine-rails",    ">= 0.0.3"
+  s.add_development_dependency     "jasmine-jquery-rails"
 end

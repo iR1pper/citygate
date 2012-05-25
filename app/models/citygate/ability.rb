@@ -13,7 +13,7 @@ module Citygate
     end
     
     def member
-      can :read, User
+      can :read, Citygate::User
     end
     
     def admin

@@ -16,6 +16,8 @@ coverage/
 spec/tmp/*
 spec/dummy/tmp/*
 *.gem
+spec/dummy/.jhw-cache/*
+spec/dummy/db/*.sqlite3
 
 # RVM ignores
 .rvmrc
