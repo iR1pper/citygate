@@ -135,7 +135,11 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>
+Defines the permissions on a user with the role of admin, which inherits
+from member.
+</p>
+</div></span>
   
 </li>
 
@@ -160,7 +164,8 @@
 
   
     <span class="summary_desc"><div class='inline'><p>
-A new instance of Ability.
+Defines the permissions for a user wich is not logged in or if it is, 
+calls the corresponding method to its role.
 </p>
 </div></span>
   
@@ -184,7 +189,10 @@ A new instance of Ability.
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>
+Defines the permissions on a user with the role of member.
+</p>
+</div></span>
   
 </li>
 
@@ -208,14 +216,36 @@ A new instance of Ability.
 </h3><div class="docstring">
   <div class="discussion">
     <p>
-A new instance of Ability
+Defines the permissions for a user wich is not logged in or if it is, 
+calls the corresponding method to its role
 </p>
 
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>user</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="User.html" title="Citygate::User (class)">Citygate::User</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the current user
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -223,18 +253,18 @@ A new instance of Ability
       <pre class="lines">
 
 
-5
-6
-7
-8
 9
 10
 11
 12
-13</pre>
+13
+14
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/citygate/ability.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'app/models/citygate/ability.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
   <span class='ivar'>@user</span> <span class='op'>=</span> <span class='id identifier rubyid_user'>user</span> <span class='op'>||</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='comment'># guest user (not logged in)
@@ -266,19 +296,32 @@ A new instance of Ability
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Defines the permissions on a user with the role of admin, which inherits
+from member
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-19
-20
-21
-22</pre>
+25
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/citygate/ability.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'app/models/citygate/ability.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_admin'>admin</span>
   <span class='id identifier rubyid_member'>member</span>
@@ -298,18 +341,30 @@ A new instance of Ability
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Defines the permissions on a user with the role of member
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-15
-16
-17</pre>
+20
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/citygate/ability.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'app/models/citygate/ability.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_member'>member</span>
   <span class='id identifier rubyid_can'>can</span> <span class='symbol'>:read</span><span class='comma'>,</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>User</span>
@@ -324,7 +379,7 @@ A new instance of Ability
 </div>
 
     <div id="footer">
-  Generated on Sat May 26 00:10:00 2012 by
+  Generated on Sat May 26 00:54:25 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.1 (ruby-1.9.2).
 </div>

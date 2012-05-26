@@ -1,3 +1,4 @@
+# @author Zamith
 module Citygate
   class Authorization < ActiveRecord::Base
     
