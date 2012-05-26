@@ -1,5 +1,5 @@
-# @author Zamith
 module Citygate
+  # @author Zamith
   class Ability
     include CanCan::Ability
   

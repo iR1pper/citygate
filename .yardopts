@@ -1,1 +1,1 @@
---no-private --protected app/**/*.rb - README.rdoc MIT-LICENSE
+--no-private --protected app/**/*.rb lib/**/*.rb - README.rdoc MIT-LICENSE

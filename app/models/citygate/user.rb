@@ -1,6 +1,6 @@
-# @author Zamith
 module Citygate
   
+  # @author Zamith
   # @!attribute name
   #   @return [String] the name of the user
   # @!attribute email

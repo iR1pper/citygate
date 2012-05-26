@@ -93,7 +93,7 @@
   
     
       <dt class="r2">Includes:</dt>
-      <dd class="r2">Gravatar</dd>
+      <dd class="r2"><span class='object_link'><a href="../Gravatar.html" title="Gravatar (module)">Gravatar</a></span></dd>
       
     
   
@@ -105,7 +105,33 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
 
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+Zamith
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
 
 
 
@@ -212,6 +238,16 @@ Get the json object for an user.
 
   
   
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../Gravatar.html" title="Gravatar (module)">Gravatar</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Gravatar.html#gravatar_id-instance_method" title="Gravatar#gravatar_id (method)">#gravatar_id</a></span>, <span class='object_link'><a href="../Gravatar.html#gravatar_url-instance_method" title="Gravatar#gravatar_url (method)">#gravatar_url</a></span></p>
+
+  
   <div id="instance_attr_details" class="attr_details">
     <h2>Instance Attribute Details</h2>
     
@@ -296,8 +332,7 @@ the email of the user
 37
 38
 39
-40
-41</pre>
+40</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/citygate/user.rb', line 8</span>
@@ -325,8 +360,7 @@ the email of the user
 </span>  <span class='comment'>#     &quot;link&quot;: null,
 </span>  <span class='comment'>#     &quot;image&quot;: &quot;https://secure.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png/rating=g&quot;
 </span>  <span class='comment'>#   }
-</span>
-  <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_authorization'>authorization</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_authorizations'>authorizations</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
     <span class='lbrace'>{</span>
       <span class='label'>email:</span> <span class='id identifier rubyid_email'>email</span><span class='comma'>,</span>
@@ -422,8 +456,7 @@ the name of the user
 37
 38
 39
-40
-41</pre>
+40</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/citygate/user.rb', line 8</span>
@@ -451,8 +484,7 @@ the name of the user
 </span>  <span class='comment'>#     &quot;link&quot;: null,
 </span>  <span class='comment'>#     &quot;image&quot;: &quot;https://secure.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png/rating=g&quot;
 </span>  <span class='comment'>#   }
-</span>
-  <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_authorization'>authorization</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_authorizations'>authorizations</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
     <span class='lbrace'>{</span>
       <span class='label'>email:</span> <span class='id identifier rubyid_email'>email</span><span class='comma'>,</span>
@@ -514,6 +546,7 @@ Get the json object for an user
       <pre class="lines">
 
 
+31
 32
 33
 34
@@ -521,11 +554,10 @@ Get the json object for an user
 36
 37
 38
-39
-40</pre>
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/citygate/user.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'app/models/citygate/user.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_authorization'>authorization</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_authorizations'>authorizations</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
@@ -546,7 +578,7 @@ Get the json object for an user
 </div>
 
     <div id="footer">
-  Generated on Sat May 26 00:54:25 2012 by
+  Generated on Sat May 26 04:38:33 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.1 (ruby-1.9.2).
 </div>
