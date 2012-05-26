@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require citygate/global
+//= require citygate/jquery.pjax
 //= require_tree .
+

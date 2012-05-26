@@ -7,7 +7,7 @@ Citygate::Engine.routes.draw do
              :module => :devise
   resources :users, :only => [:show]
     
-  namespace "admin", constraints: { format: /(json|html|js| )/ } do
+  namespace "admin" do
     resources :users
   end
   
