@@ -158,6 +158,7 @@ When /^I click (.*)$/ do |link|
 end
 
 When /^I go back in history$/ do
+  sleep 2
   page.execute_script("history.back()")
 end
 

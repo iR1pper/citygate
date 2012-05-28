@@ -11,6 +11,7 @@ require 'email_spec/cucumber'
 require 'cucumber/rails'
 require 'cucumber/rails/rspec'
 require 'cucumber/rails/world'
+require 'capybara-webkit'
 
 require 'factory_girl'
 FactoryGirl.find_definitions
@@ -20,6 +21,14 @@ FactoryGirl.find_definitions
 # prefer to use XPath just remove this line and adjust any selectors in your
 # steps to use the XPath syntax.
 Capybara.default_selector = :css
+Capybara.javascript_driver = :webkit
+
+if Capybara.current_driver == :webkit
+  require 'headless'
+
+  headless = Headless.new
+  headless.start
+end
 
 # By default, any exception happening in your Rails application will bubble up
 # to Cucumber so that your scenario will fail. This is a different from how 

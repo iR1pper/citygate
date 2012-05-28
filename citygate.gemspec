@@ -41,4 +41,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency     "launchy",          ">= 2.0.5"
   s.add_development_dependency     "jasmine-rails",    ">= 0.0.3"
   s.add_development_dependency     "jasmine-jquery-rails"
+  s.add_development_dependency     "capybara-webkit"
+  s.add_development_dependency     "headless"
 end
