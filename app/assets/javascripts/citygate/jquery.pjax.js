@@ -213,8 +213,6 @@ var pjax = $.pjax = function( options ) {
 
     if (options.push || options.replace) {
       window.history.replaceState(pjax.state, container.title, container.url)
-      console.log("Replace 1");
-      console.log(pjax.state.url);
     }
 
     if (container.title) document.title = container.title
@@ -254,8 +252,6 @@ var pjax = $.pjax = function( options ) {
       fragment: options.fragment,
       timeout: options.timeout
     }
-    console.log("Replace 2");
-    console.log(pjax.state.url);
     window.history.replaceState(pjax.state, document.title)
   }
 
@@ -277,7 +273,6 @@ var pjax = $.pjax = function( options ) {
       // Cache current container element before replacing it
       containerCache.push(pjax.state.id, context.clone(true, true).contents())
 
-      console.log("Push 1");
       window.history.pushState(null, "", options.url)
     }
 
