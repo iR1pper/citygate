@@ -1,1 +1,10 @@
---no-private --protected app/**/*.rb lib/**/*.rb - README.rdoc MIT-LICENSE
+--no-private
+--protected 
+
+--exclude lib/app_controller_helpers.rb
+--exclude lib/citygate/engine.rb
+--exclude app/models/citygate/role.rb
+
+app/**/*.rb 
+lib/**/*.rb 
+- README.rdoc MIT-LICENSE

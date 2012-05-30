@@ -3,3 +3,51 @@
 Citygate is a rails engine that provides your application with user authentication (on the site or through facebook or google) using Devise and fully customizable authorization using CanCan.
 
 It also provides a customizable backend for administrating all your users, using pjax and pushState making your website as fast as responsive as you ever wanted it to be.
+
+== Instalation
+
+First add the gem to your Gemfile to get the latest stable version
+
+  gem "citygate"
+
+or to go on the edge with
+
+  gem "citygate", :git => "https://zamith@github.com/zamith/citygate.git"
+
+== Database Configuration
+
+In order to get the database ready to run citygate you will need to fetch the migrations
+
+  rake citygate:install:migrations
+
+and run them
+
+  rake db:migrate
+
+then drop this line at your `db/seeds.rb` file in order to be able to populate the db with the needed records
+
+  Citygate::Engine.load_seed
+
+and finally run the seeds command to actually populate the db
+
+  rake db:seed
+
+== Routes Configuration
+
+To get all the citygate routes working you just need to mount them by adding the following line to your `config/routes.rb` file
+
+  mount Citygate::Engine => "/"
+
+== Environment Configuration
+
+Since citygate will send confirmation emails to any user that signs up, you will need to have your email configured.
+
+In case of development add this to `config/environments/development.rb`
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+== Running Citygate
+
+Users in citygate will not be able to login with their google account if you use WEBrick, due to its url length limitation. Therefore run your server in development with `rails s thin`, to run the thin server.
+
+Note: Do not forget to check the routes made available to you by Citygate with `rake routes` and to take a look at the doc at [rdoc](http://rubydoc.info/github/zamith/citygate/master/frames "Ruby Doc")

@@ -20,7 +20,7 @@ module Citygate
     has_many :authorizations, :dependent => :destroy
     belongs_to :role
 
-    # Get the json object for an user
+    # Get the json object for an user. Used by to_json.
     # @example
     #   {
     #     "email": "user@example.com",
@@ -28,6 +28,7 @@ module Citygate
     #     "link": null,
     #     "image": "https://secure.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png/rating=g"
     #   }
+    # @return [Hash] the json object in the form of an hash
     def as_json(options = {})
       authorization = self.authorizations.first
       {

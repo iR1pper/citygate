@@ -210,7 +210,7 @@ The name of the user.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#as_json-instance_method" title="#as_json (instance method)">- (Object) <strong>as_json</strong>(options = {}) </a>
+      <a href="#as_json-instance_method" title="#as_json (instance method)">- (Hash) <strong>as_json</strong>(options = {}) </a>
     
 
     
@@ -332,7 +332,8 @@ the email of the user
 37
 38
 39
-40</pre>
+40
+41</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/citygate/user.rb', line 8</span>
@@ -352,7 +353,7 @@ the email of the user
   <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:authorizations</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span>
   <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:role</span>
 
-  <span class='comment'># Get the json object for an user
+  <span class='comment'># Get the json object for an user. Used by to_json.
 </span>  <span class='comment'># @example
 </span>  <span class='comment'>#   {
 </span>  <span class='comment'>#     &quot;email&quot;: &quot;user@example.com&quot;,
@@ -360,6 +361,7 @@ the email of the user
 </span>  <span class='comment'>#     &quot;link&quot;: null,
 </span>  <span class='comment'>#     &quot;image&quot;: &quot;https://secure.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png/rating=g&quot;
 </span>  <span class='comment'>#   }
+</span>  <span class='comment'># @return [Hash] the json object in the form of an hash
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_authorization'>authorization</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_authorizations'>authorizations</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
     <span class='lbrace'>{</span>
@@ -456,7 +458,8 @@ the name of the user
 37
 38
 39
-40</pre>
+40
+41</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/citygate/user.rb', line 8</span>
@@ -476,7 +479,7 @@ the name of the user
   <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:authorizations</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span>
   <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:role</span>
 
-  <span class='comment'># Get the json object for an user
+  <span class='comment'># Get the json object for an user. Used by to_json.
 </span>  <span class='comment'># @example
 </span>  <span class='comment'>#   {
 </span>  <span class='comment'>#     &quot;email&quot;: &quot;user@example.com&quot;,
@@ -484,6 +487,7 @@ the name of the user
 </span>  <span class='comment'>#     &quot;link&quot;: null,
 </span>  <span class='comment'>#     &quot;image&quot;: &quot;https://secure.gravatar.com/avatar/b58996c504c5638798eb6b511e6f49af.png/rating=g&quot;
 </span>  <span class='comment'>#   }
+</span>  <span class='comment'># @return [Hash] the json object in the form of an hash
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_authorization'>authorization</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_authorizations'>authorizations</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
     <span class='lbrace'>{</span>
@@ -509,7 +513,7 @@ the name of the user
       <div class="method_details first">
   <h3 class="signature first" id="as_json-instance_method">
   
-    - (<tt>Object</tt>) <strong>as_json</strong>(options = {}) 
+    - (<tt>Hash</tt>) <strong>as_json</strong>(options = {}) 
   
 
   
@@ -518,7 +522,7 @@ the name of the user
 </h3><div class="docstring">
   <div class="discussion">
     <p>
-Get the json object for an user
+Get the json object for an user. Used by to_json.
 </p>
 
 
@@ -539,6 +543,25 @@ Get the json object for an user
     
   </div>
 
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the json object in the form of an hash
+</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -546,7 +569,6 @@ Get the json object for an user
       <pre class="lines">
 
 
-31
 32
 33
 34
@@ -554,10 +576,11 @@ Get the json object for an user
 36
 37
 38
-39</pre>
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/citygate/user.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'app/models/citygate/user.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_authorization'>authorization</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_authorizations'>authorizations</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
@@ -578,7 +601,7 @@ Get the json object for an user
 </div>
 
     <div id="footer">
-  Generated on Sat May 26 04:38:33 2012 by
+  Generated on Wed May 30 15:51:33 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.1 (ruby-1.9.2).
 </div>

@@ -1,13 +1,18 @@
+# @author Zamith
+# Encapsulates all the omniauth authorization logic
 class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
+  # Authorize user with his facebook account
   def facebook
     oauthorize "Facebook"
   end
   
+  # Authorize user with his google (openid) account
   def google
     oauthorize "Google"
   end
   
+  # In case of error renders 404
   def passthru
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
