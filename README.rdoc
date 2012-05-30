@@ -24,7 +24,7 @@ and run them
 
   rake db:migrate
 
-then drop this line at your `db/seeds.rb` file in order to be able to populate the db with the needed records
+then drop this line at your +db/seeds.rb+ file in order to be able to populate the db with the needed records
 
   Citygate::Engine.load_seed
 
@@ -34,7 +34,7 @@ and finally run the seeds command to actually populate the db
 
 == Routes Configuration
 
-To get all the citygate routes working you just need to mount them by adding the following line to your `config/routes.rb` file
+To get all the citygate routes working you just need to mount them by adding the following line to your +config/routes.rb+ file
 
   mount Citygate::Engine => "/"
 
@@ -42,12 +42,12 @@ To get all the citygate routes working you just need to mount them by adding the
 
 Since citygate will send confirmation emails to any user that signs up, you will need to have your email configured.
 
-In case of development add this to `config/environments/development.rb`
+In case of development add this to +config/environments/development.rb+
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
 == Running Citygate
 
-Users in citygate will not be able to login with their google account if you use WEBrick, due to its url length limitation. Therefore run your server in development with `rails s thin`, to run the thin server.
+Users in citygate will not be able to login with their google account if you use WEBrick, due to its url length limitation. Therefore run your server in development with <tt>rails s thin</tt>, to run the thin server.
 
-Note: Do not forget to check the routes made available to you by Citygate with `rake routes` and to take a look at the doc at [rdoc](http://rubydoc.info/github/zamith/citygate/master/frames "Ruby Doc")
+Note: Do not forget to check the routes made available to you by Citygate with <tt>rake routes</tt> and to take a look at the doc at RubyDoc[http://rubydoc.info/github/zamith/citygate/master/frames]
