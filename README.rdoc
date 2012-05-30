@@ -50,4 +50,6 @@ In case of development add this to +config/environments/development.rb+
 
 Users in citygate will not be able to login with their google account if you use WEBrick, due to its url length limitation. Therefore run your server in development with <tt>rails s thin</tt>, to run the thin server.
 
-Note: Do not forget to check the routes made available to you by Citygate with <tt>rake routes</tt> and to take a look at the doc at RubyDoc[http://rubydoc.info/github/zamith/citygate/master/frames]
+---
+
+*Note:* Do not forget to check the routes made available to you by Citygate with <tt>rake routes</tt> and to take a look at the doc at RubyDoc[http://rubydoc.info/github/zamith/citygate/master/frames]
