@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   # Dependencies
-  s.add_dependency "rails",              "~> 3.2.2"  
+  s.add_dependency "rails",              ">= 3.2.2"  
   s.add_dependency "haml",               ">= 3.1.4"
   s.add_dependency "devise",             ">= 2.0.4"
   s.add_dependency "devise-encryptable", ">= 0.1.1"

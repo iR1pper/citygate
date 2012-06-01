@@ -22,6 +22,7 @@ pkg/*
 spec/dummy/db/development.sqlite3
 spec/dummy/db/test.sqlite3
 .yardoc
+config/initializers/devise.rb
 
 # RVM ignores
 .rvmrc

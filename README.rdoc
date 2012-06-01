@@ -10,7 +10,7 @@ First add the gem to your Gemfile to get the latest stable version
 
   gem "citygate"
 
-or to go on the edge with
+or go on the edge with
 
   gem "citygate", :git => "https://zamith@github.com/zamith/citygate.git"
 
@@ -58,7 +58,7 @@ You can change citygate's defaults by editing your +config/application.rb+ file 
 
 The available options are:
 
-+will_paginate_options+:: an hash with any option supported by paginate[https://github.com/mislav/will_paginate/wiki]
+will_paginate_options:: an hash with any option supported by paginate[https://github.com/mislav/will_paginate/wiki]
 
 == Running Citygate
 
