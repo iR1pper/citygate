@@ -20,6 +20,7 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
   private
 
   def oauthorize(kind)
+    current_user ||= (params[:user]) ? Citygate::User.find(params[:user]) : nil
     @user = find_for_ouath(kind, request.env["omniauth.auth"], current_user)
     if @user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => kind
@@ -69,7 +70,6 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
     else
       user = resource
     end
-    
     auth = user.authorizations.find_by_provider(provider)
     if auth.nil?
       auth = user.authorizations.build(:provider => provider)
