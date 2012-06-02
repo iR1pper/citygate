@@ -2,7 +2,6 @@ require "rails"
 
 require "rubygems"
 require "devise"
-require "devise"
 require "devise_invitable"
 require "devise-encryptable"
 require 'omniauth'
@@ -11,6 +10,9 @@ require 'omniauth-openid'
 require 'uuidtools'
 require 'will_paginate'
 require 'cancan'
+
+# Make Devise "see" the changes made in the citygate appilication controller
+Devise.parent_controller = "Citygate::ApplicationController"
 
 module Citygate
   def self.root

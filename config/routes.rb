@@ -2,7 +2,8 @@ Citygate::Engine.routes.draw do
   root :to => "home#index"
   
   match "/user/profile" => "users#show", :as => "profile"
-  match "/connect/:provider" => "users#connect", :as => "connect"
+  
+  match '/confirm/:confirmation_token', :to => "devise/confirmations#show", :as => "user_confirm", :only_path => false
   
   devise_for :users, 
              :controllers => { 
