@@ -52,9 +52,9 @@ module Dummy
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     
-    Citygate::Engine.configure do
+    Citygate::Engine.configure do |config|
       config.will_paginate_options = {per_page: 2}
+      config.mount_path = "/play"
     end
   end
 end
-

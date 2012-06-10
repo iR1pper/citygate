@@ -21,5 +21,17 @@ module Citygate
 
   class Engine < ::Rails::Engine
     isolate_namespace Citygate
+    
+    mattr_accessor :will_paginate_options
+    @@will_paginate_options = {per_page: 1}
+    
+    mattr_accessor :mount_path
+    @@mount_path = ""
+    
+    def configure
+      yield self
+    end
   end
 end
+
+

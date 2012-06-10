@@ -3,7 +3,7 @@ class Citygate::Admin::UsersController < Citygate::Admin::ApplicationController
   respond_to :html, :json, :js
 
   def index
-    @users = Citygate::User.paginate({page: params[:page]}.merge(Citygate::Engine.config.will_paginate_options))
+    @users = Citygate::User.paginate({page: params[:page]}.merge(Citygate::Engine.will_paginate_options))
     
     respond_with @users
   end

@@ -21,4 +21,6 @@ class Citygate::ApplicationController < ::ApplicationController
   def stored_location_for(resource_or_scope)
     root_url
   end
+  
+  Devise.omniauth_path_prefix = (Citygate::Engine.mount_path + "/users/auth").squeeze "/"
 end
