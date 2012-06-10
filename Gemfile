@@ -17,4 +17,3 @@ end
 
 gem 'jquery-rails'
 gem 'yard'
-gem 'devise', :path => "../devise"
