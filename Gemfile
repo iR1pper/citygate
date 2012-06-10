@@ -17,3 +17,4 @@ end
 
 gem 'jquery-rails'
 gem 'yard'
+gem "devise", :git => "git://github.com/plataformatec/devise.git"
