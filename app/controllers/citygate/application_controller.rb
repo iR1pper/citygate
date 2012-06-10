@@ -22,5 +22,5 @@ class Citygate::ApplicationController < ::ApplicationController
     root_url
   end
   
-  Devise.omniauth_path_prefix = (Citygate::Engine.mount_path + "/users/auth").squeeze "/"
+  Devise.omniauth_path_prefix = "#{Citygate::Engine.mount_path}/users/auth".squeeze "/"
 end

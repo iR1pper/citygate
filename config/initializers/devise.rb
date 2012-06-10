@@ -225,5 +225,5 @@ Devise.setup do |config|
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
   
-  #config.router_name = :citygate
+  config.router_name = :citygate
 end
