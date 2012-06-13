@@ -205,15 +205,27 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
-  config.omniauth :facebook, ACCOUNTS['facebook']['app_id'], ACCOUNTS['facebook']['app_secret'],
-    { :scope => 'email, offline_access' }
-    
-  require 'openid/store/filesystem'
-  config.omniauth :open_id, 
-                  :store => OpenID::Store::Filesystem.new('/tmp'), 
-                  :name => 'google', 
-                  :identifier => ACCOUNTS['google']['identifier'], 
-                  :require => 'omniauth-openid'
+  unless Rails.env.test?
+    config.omniauth :facebook, ACCOUNTS['facebook']['app_id'], ACCOUNTS['facebook']['app_secret'],
+      { :scope => 'email, offline_access' }
+      
+    require 'openid/store/filesystem'
+    config.omniauth :open_id, 
+                    :store => OpenID::Store::Filesystem.new('/tmp'), 
+                    :name => 'google', 
+                    :identifier => ACCOUNTS['google']['identifier'], 
+                    :require => 'omniauth-openid'             
+  else
+    config.omniauth :facebook, "foo", "bar",
+      { :scope => 'email, offline_access' }
+      
+    require 'openid/store/filesystem'
+    config.omniauth :open_id, 
+                    :store => OpenID::Store::Filesystem.new('/tmp'), 
+                    :name => 'google', 
+                    :identifier => "foobar", 
+                    :require => 'omniauth-openid'
+  end
 
 
   # ==> Warden configuration
