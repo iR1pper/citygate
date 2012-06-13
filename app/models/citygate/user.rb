@@ -42,7 +42,7 @@ module Citygate
     # Get the name if it is present or else get the email
     # @return [String] the name or email of the user
     def name_or_email
-      (self.name) ? self.name : self.email
+       self.name || self.email
     end
   end
 end

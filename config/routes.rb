@@ -11,10 +11,6 @@ Citygate::Engine.routes.draw do
              }, 
              :class_name => "Citygate::User",
              :module => :devise
-  
-  devise_scope :user do
-    match '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
-  end
 
   namespace "admin", constraints: { format: /(json|html| )/ } do
     resources :users

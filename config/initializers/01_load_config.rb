@@ -1,0 +1,1 @@
+ACCOUNTS = YAML.load_file("#{Citygate.root}/config/accounts.yml")

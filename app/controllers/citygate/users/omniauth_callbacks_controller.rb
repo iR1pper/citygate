@@ -56,7 +56,7 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
         :name => access_token['info']['name'], 
       }
     else
-      raise 'Provider #{provider} not handled'
+      raise "Provider #{provider} not handled"
     end
     if resource.nil?
       if email
@@ -71,10 +71,7 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
       user = resource
     end
     auth = user.authorizations.find_by_provider(provider)
-    if auth.nil?
-      auth = user.authorizations.build(:provider => provider)
-      user.authorizations << auth
-    end
+    auth ||= user.authorizations.build(:provider => provider)
     auth.update_attributes auth_attr
     
     return user
