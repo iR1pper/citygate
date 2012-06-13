@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Citygate by zamith</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Citygate</h1>
+        <p>User management and authentication engine.</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/zamith/citygate" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/zamith/citygate/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/zamith/citygate/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>Citygate <a href="http://travis-ci.org/zamith/citygate"><img src="https://secure.travis-ci.org/zamith/citygate.png"></a>
+</h1>
+
+<p>Citygate is a rails engine that provides your application with user authentication (on the site or through facebook or google) using Devise and fully customizable authorization using CanCan.</p>
+
+<p>It also provides a customizable backend for administrating all your users, using pjax and pushState making your website as fast as responsive as you ever wanted it to be.</p>
+
+<h2>Instalation</h2>
+
+<p>First add the gem to your Gemfile to get the latest stable version</p>
+
+<pre><code>gem "citygate"
+</code></pre>
+
+<p>or go on the edge with</p>
+
+<pre><code>gem "citygate", :git =&gt; "https://zamith@github.com/zamith/citygate.git"
+</code></pre>
+
+<h2>Database Configuration</h2>
+
+<p>In order to get the database ready to run citygate you will need to fetch the migrations</p>
+
+<pre><code>rake citygate:install:migrations
+</code></pre>
+
+<p>and run them</p>
+
+<pre><code>rake db:migrate
+</code></pre>
+
+<p>then drop this line at your <code>db/seeds.rb</code> file in order to be able to populate the db with the needed records</p>
+
+<pre><code>Citygate::Engine.load_seed
+</code></pre>
+
+<p>and finally run the seeds command to actually populate the db</p>
+
+<pre><code>rake db:seed
+</code></pre>
+
+<h2>Routes Configuration</h2>
+
+<p>To get all the citygate routes working you just need to mount them by adding the following line to your <code>config/routes.rb</code> file</p>
+
+<pre><code>mount Citygate::Engine =&gt; "/"
+</code></pre>
+
+<h2>Environment Configuration</h2>
+
+<p>Since citygate will send confirmation emails to any user that signs up, you will need to have your email configured.</p>
+
+<p>In case of development add this to <code>config/environments/development.rb</code></p>
+
+<pre><code>config.action_mailer.default_url_options = { :host =&gt; 'localhost:3000' }
+</code></pre>
+
+<h2>Citygate Options</h2>
+
+<p>You can change citygate's defaults by editing your <code>config/application.rb</code> file like so</p>
+
+<pre><code>Citygate::Engine.configure do
+  config.option = value
+end
+</code></pre>
+
+<h3>Options</h3>
+
+<p>The available options are:</p>
+
+<ul>
+<li>
+<strong>will_paginate_options</strong> - a hash with any option supported by <a href="https://github.com/mislav/will_paginate/wiki">paginate</a>
+</li>
+<li>
+<strong>mount_path</strong> if you mount the engine in any other path than "/", must define it here as well so that omniauth can be aware of it</li>
+</ul><h2>Running Citygate</h2>
+
+<p>Users in citygate will not be able to login with their google account if you use WEBrick, due to its url length limitation. Therefore run your server in development with <code>rails s thin</code>, to run the thin server.</p>
+
+<hr><p><em>Note:</em> Do not forget to check the routes made available to you by Citygate with <code>rake routes</code> and to take a look at the doc at <a href="http://rubydoc.info/github/zamith/citygate/master/frames">RubyDoc</a></p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/zamith">zamith</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>
