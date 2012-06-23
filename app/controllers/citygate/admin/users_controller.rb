@@ -4,14 +4,14 @@ class Citygate::Admin::UsersController < Citygate::Admin::ApplicationController
 
   def index
     @users = Citygate::User.paginate({page: params[:page]}.merge(Citygate::Engine.will_paginate_options))
-    
+
     respond_with @users
   end
-  
+
   def show
     @user = Citygate::User.find(params[:id])
-    
+
     respond_with @user
   end
-  
+
 end
