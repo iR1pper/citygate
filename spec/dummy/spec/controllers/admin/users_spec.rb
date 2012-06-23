@@ -7,9 +7,9 @@ describe Citygate::Admin::UsersController do
     sign_in @user
   end
   
-  it "should get 15 or less users at a time" do
+  it "should get the defined number of users or less at a time" do
     get :index
-    assigns(:users).size.should be <= 15
+    assigns(:users).size.should be <= Citygate::Engine.will_paginate_options[:per_page]
   end
   
 end

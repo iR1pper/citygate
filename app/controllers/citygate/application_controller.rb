@@ -13,7 +13,7 @@ class Citygate::ApplicationController < ::ApplicationController
   
   # Gets or creates an Ability instance for usage with CanCan
   def current_ability
-    @current_ability ||= Citygate::Ability.new(current_user)
+    @current_ability ||= Ability.new(current_user)
   end
   
   # Change Devise's redirect after sign in url
@@ -22,5 +22,7 @@ class Citygate::ApplicationController < ::ApplicationController
     root_url
   end
   
+  # Defines the omniauth prefix so that citygate can be
+  # mounted in anywhere
   Devise.omniauth_path_prefix = "#{Citygate::Engine.mount_path}/users/auth".squeeze "/"
 end

@@ -10,18 +10,39 @@ describe Citygate::Users::OmniauthCallbacksController do
       end
       
       it "should create a new user" do
-        lambda {
+        expect {
           get provider
-        }.should change(Citygate::User,:count).by(1)
+        }.to change{Citygate::User.count}.by(1)
       end
       
       it "should create a new authorization" do
-        lambda {
+        expect {
           get provider
-        }.should change(Citygate::Authorization,:count).by(1)
+        }.to change{Citygate::Authorization.count}.by(1)
       end
       
-      context "not database" do
+      context "limiting users" do
+        before (:each) do
+          Citygate::Engine.no_of_users = 1
+          Factory.create(:user)
+          request.env["omniauth.auth"] = OmniAuth.config.mock_auth[provider]
+          request.env["devise.mapping"] = Devise.mappings[:user]
+        end
+        
+        it "should not create a new user" do
+        expect {
+          get provider
+        }.not_to change{Citygate::User.count}
+      end
+      
+      it "should not create a new authorization" do
+        expect {
+          get provider
+        }.not_to change{Citygate::Authorization.count}
+      end
+      end
+      
+      context "not changing the database" do
         before (:each) do
           get provider
         end

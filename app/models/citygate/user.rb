@@ -19,6 +19,8 @@ module Citygate
 
     has_many :authorizations, :dependent => :destroy
     belongs_to :role
+    
+    before_create :check_no_of_users
 
     # Get the json object for an user. Used by to_json.
     # @example
@@ -43,6 +45,18 @@ module Citygate
     # @return [String] the name or email of the user
     def name_or_email
        self.name || self.email
+    end
+    
+    
+    protected
+    
+    def check_no_of_users
+      if Citygate::Engine.no_of_users > 0 && Citygate::User.count >= Citygate::Engine.no_of_users
+        self.errors.add(:base,"Too many users")
+        return false
+      else
+        return true
+      end
     end
   end
 end

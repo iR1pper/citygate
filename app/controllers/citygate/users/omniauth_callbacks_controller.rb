@@ -27,7 +27,8 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
       session["devise.#{kind.downcase}_data"] = request.env["omniauth.auth"]
       sign_in_and_redirect @user, :event => :authentication
     else
-      session["devise.#{kind.downcase}_data"] = request.env["omniauth.auth"]
+      @user.authorizations.map(&:destroy)
+      flash[:error] = @user.errors.full_messages.first
       redirect_to new_user_registration_url
     end    
   end
@@ -40,20 +41,20 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
       email = access_token['extra']['raw_info']['email']
       auth_attr = { 
         :uid => uid, 
-        :token => access_token['credentials']['token'], 
-        :secret => nil, 
-        :name => access_token['extra']['raw_info']['name'], 
-        :link => access_token['extra']['raw_info']['link'], 
+        :token => access_token['credentials']['token'],
+        :secret => nil,
+        :name => access_token['extra']['raw_info']['name'],
+        :link => access_token['extra']['raw_info']['link'],
         :image_url => access_token['info']['image'] 
       }
     when "Google"
       uid = access_token['uid']
       email = access_token['info']['email']
-      auth_attr = { 
+      auth_attr = {
         :uid => uid,
         :token => access_token['credentials']['token'],
-        :secret => nil, 
-        :name => access_token['info']['name'], 
+        :secret => nil,
+        :name => access_token['info']['name'],
       }
     else
       raise "Provider #{provider} not handled"
@@ -89,12 +90,12 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
     if user = Citygate::User.find_by_email(email)
       user
     else
-      user = Citygate::User.new(:email => email, :password => Devise.friendly_token[0,20]) 
+      user = Citygate::User.new(:email => email, :password => Devise.friendly_token[0,20])
       user.save
     end
     return user
   end
-  
+
   def find_for_oauth_by_name(name, resource=nil)
     if user = Citygate::User.find_by_name(name)
       user

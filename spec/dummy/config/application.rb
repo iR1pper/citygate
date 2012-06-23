@@ -55,6 +55,7 @@ module Dummy
     Citygate::Engine.configure do |config|
       config.will_paginate_options = {per_page: 2}
       #config.mount_path = "/play"
+      config.no_of_users = 1
     end
   end
 end
