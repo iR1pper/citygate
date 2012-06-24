@@ -95,18 +95,10 @@ describe Citygate::User do
   end
   
   describe "password encryption" do
-    
-    before(:each) do
-      @user = Citygate::User.create!(@attr)
-    end
-    
-    it "should have an encrypted password attribute" do
-      @user.should respond_to(:encrypted_password)
-    end
+    subject { Citygate::User.create!(@attr) }
 
-    it "should set the encrypted password attribute" do
-      @user.encrypted_password.should_not be_blank
-    end
+    it { should respond_to(:encrypted_password) }
+    its(:encrypted_password) { should_not be_blank }
 
   end
 
