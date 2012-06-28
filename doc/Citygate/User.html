@@ -6,7 +6,7 @@
 <title>
   Class: Citygate::User
   
-    &mdash; Documentation by YARD 0.8.1
+    &mdash; Documentation by YARD 0.8.2.1
   
 </title>
 
@@ -232,6 +232,53 @@ Get the json object for an user.
 </li>
 
       
+        <li class="protected ">
+  <span class="summary_signature">
+    
+      <a href="#check_no_of_users-instance_method" title="#check_no_of_users (instance method)">- (Object) <strong>check_no_of_users</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title protected">protected</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name_or_email-instance_method" title="#name_or_email (instance method)">- (String) <strong>name_or_email</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Get the name if it is present or else get the email.
+</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -253,7 +300,6 @@ Get the json object for an user.
     
       
       <span id="email=-instance_method"></span>
-      <span id="email-instance_method"></span>
       <div class="method_details first">
   <h3 class="signature first" id="email-instance_method">
   
@@ -333,7 +379,27 @@ the email of the user
 38
 39
 40
-41</pre>
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/citygate/user.rb', line 8</span>
@@ -352,6 +418,8 @@ the email of the user
 
   <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:authorizations</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span>
   <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:role</span>
+  
+  <span class='id identifier rubyid_before_create'>before_create</span> <span class='symbol'>:check_no_of_users</span>
 
   <span class='comment'># Get the json object for an user. Used by to_json.
 </span>  <span class='comment'># @example
@@ -371,6 +439,24 @@ the email of the user
       <span class='label'>image:</span> <span class='lparen'>(</span><span class='id identifier rubyid_authorization'>authorization</span><span class='period'>.</span><span class='id identifier rubyid_image_url'>image_url</span> <span class='kw'>if</span> <span class='id identifier rubyid_authorization'>authorization</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_gravatar_url'>gravatar_url</span>
     <span class='rbrace'>}</span>
   <span class='kw'>end</span>
+  
+  <span class='comment'># Get the name if it is present or else get the email
+</span>  <span class='comment'># @return [String] the name or email of the user
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_name_or_email'>name_or_email</span>
+     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_email'>email</span>
+  <span class='kw'>end</span>
+  
+  
+  <span class='id identifier rubyid_protected'>protected</span>
+  
+  <span class='kw'>def</span> <span class='id identifier rubyid_check_no_of_users'>check_no_of_users</span>
+    <span class='kw'>if</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>Engine</span><span class='period'>.</span><span class='id identifier rubyid_no_of_users'>no_of_users</span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='op'>&amp;&amp;</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span> <span class='op'>&gt;=</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>Engine</span><span class='period'>.</span><span class='id identifier rubyid_no_of_users'>no_of_users</span>
+      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:base</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Too many users</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>else</span>
+      <span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -379,7 +465,6 @@ the email of the user
     
       
       <span id="name=-instance_method"></span>
-      <span id="name-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="name-instance_method">
   
@@ -459,7 +544,27 @@ the name of the user
 38
 39
 40
-41</pre>
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/citygate/user.rb', line 8</span>
@@ -478,6 +583,8 @@ the name of the user
 
   <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:authorizations</span><span class='comma'>,</span> <span class='symbol'>:dependent</span> <span class='op'>=&gt;</span> <span class='symbol'>:destroy</span>
   <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:role</span>
+  
+  <span class='id identifier rubyid_before_create'>before_create</span> <span class='symbol'>:check_no_of_users</span>
 
   <span class='comment'># Get the json object for an user. Used by to_json.
 </span>  <span class='comment'># @example
@@ -496,6 +603,24 @@ the name of the user
       <span class='label'>link:</span> <span class='lparen'>(</span><span class='id identifier rubyid_authorization'>authorization</span><span class='period'>.</span><span class='id identifier rubyid_link'>link</span> <span class='kw'>if</span> <span class='id identifier rubyid_authorization'>authorization</span><span class='rparen'>)</span><span class='comma'>,</span>
       <span class='label'>image:</span> <span class='lparen'>(</span><span class='id identifier rubyid_authorization'>authorization</span><span class='period'>.</span><span class='id identifier rubyid_image_url'>image_url</span> <span class='kw'>if</span> <span class='id identifier rubyid_authorization'>authorization</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_gravatar_url'>gravatar_url</span>
     <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+  
+  <span class='comment'># Get the name if it is present or else get the email
+</span>  <span class='comment'># @return [String] the name or email of the user
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_name_or_email'>name_or_email</span>
+     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_email'>email</span>
+  <span class='kw'>end</span>
+  
+  
+  <span class='id identifier rubyid_protected'>protected</span>
+  
+  <span class='kw'>def</span> <span class='id identifier rubyid_check_no_of_users'>check_no_of_users</span>
+    <span class='kw'>if</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>Engine</span><span class='period'>.</span><span class='id identifier rubyid_no_of_users'>no_of_users</span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='op'>&amp;&amp;</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span> <span class='op'>&gt;=</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>Engine</span><span class='period'>.</span><span class='id identifier rubyid_no_of_users'>no_of_users</span>
+      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:base</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Too many users</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>else</span>
+      <span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -569,18 +694,18 @@ the json object in the form of an hash
       <pre class="lines">
 
 
-32
-33
 34
 35
 36
 37
 38
 39
-40</pre>
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/citygate/user.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'app/models/citygate/user.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_json'>as_json</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_authorization'>authorization</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_authorizations'>authorizations</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
@@ -596,14 +721,115 @@ the json object in the form of an hash
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="check_no_of_users-instance_method">
+  
+    - (<tt>Object</tt>) <strong>check_no_of_users</strong>  <span class="extras">(protected)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56
+57
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/citygate/user.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_check_no_of_users'>check_no_of_users</span>
+  <span class='kw'>if</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>Engine</span><span class='period'>.</span><span class='id identifier rubyid_no_of_users'>no_of_users</span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='op'>&amp;&amp;</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span> <span class='op'>&gt;=</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>Engine</span><span class='period'>.</span><span class='id identifier rubyid_no_of_users'>no_of_users</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:base</span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Too many users</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>else</span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="name_or_email-instance_method">
+  
+    - (<tt>String</tt>) <strong>name_or_email</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Get the name if it is present or else get the email
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the name or email of the user
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/citygate/user.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_name_or_email'>name_or_email</span>
+   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>||</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_email'>email</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
     <div id="footer">
-  Generated on Wed May 30 15:51:33 2012 by
+  Generated on Thu Jun 28 01:11:27 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.1 (ruby-1.9.2).
+  0.8.2.1 (ruby-1.9.2).
 </div>
 
   </body>

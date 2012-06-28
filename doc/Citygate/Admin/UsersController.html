@@ -6,7 +6,7 @@
 <title>
   Class: Citygate::Admin::UsersController
   
-    &mdash; Documentation by YARD 0.8.1
+    &mdash; Documentation by YARD 0.8.2.1
   
 </title>
 
@@ -195,8 +195,8 @@
       <pre class="code"><span class="info file"># File 'app/controllers/citygate/admin/users_controller.rb', line 5</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span>
-  <span class='ivar'>@users</span> <span class='op'>=</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_paginate'>paginate</span><span class='lparen'>(</span><span class='label'>per_page:</span> <span class='int'>1</span><span class='comma'>,</span> <span class='label'>page:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  
+  <span class='ivar'>@users</span> <span class='op'>=</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_paginate'>paginate</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='label'>page:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:page</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='const'>Citygate</span><span class='op'>::</span><span class='const'>Engine</span><span class='period'>.</span><span class='id identifier rubyid_will_paginate_options'>will_paginate_options</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
   <span class='id identifier rubyid_respond_with'>respond_with</span> <span class='ivar'>@users</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -230,7 +230,7 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_show'>show</span>
   <span class='ivar'>@user</span> <span class='op'>=</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  
+
   <span class='id identifier rubyid_respond_with'>respond_with</span> <span class='ivar'>@user</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -243,9 +243,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed May 30 15:51:34 2012 by
+  Generated on Thu Jun 28 01:11:27 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.1 (ruby-1.9.2).
+  0.8.2.1 (ruby-1.9.2).
 </div>
 
   </body>
