@@ -2,11 +2,11 @@
 <html>
 <head>
   <%= stylesheet_link_tag    "citygate/application", :media => "all" %>
-  <%= javascript_include_tag "citygate/application" %>
+  <%= javascript_include_tag "citygate" %>
   <%= csrf_meta_tags %>
   <%= yield :head %>
 </head>
-<body>
+<body data-pjax-container>
   <%= render 'citygate/shared/navigation' %>
 
   <% flash.each do |name, msg| %>

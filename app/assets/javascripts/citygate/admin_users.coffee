@@ -1,2 +1,3 @@
 $ ->
-  $("a").pjax("[data-pjax-container]")
+  $("a").pjax("#container").on 'click', ->
+    $(this).showLoader()

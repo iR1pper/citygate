@@ -154,6 +154,8 @@ var pjax = $.pjax = function( options ) {
 
     xhr.setRequestHeader('X-PJAX', 'true')
     xhr.setRequestHeader('X-PJAX-Container', context.selector)
+    if(!settings.push)
+      xhr.setRequestHeader('X-PJAX-layout','true')
 
     var result
 
@@ -600,7 +602,7 @@ $(window).bind('popstate', function(event){
         id: state.id,
         url: state.url,
         container: container,
-        push: true,
+        push: false,
         fragment: state.fragment,
         timeout: state.timeout,
         scrollTo: false
