@@ -9,13 +9,9 @@
 
     <li><%= link_to(t('navigation.links.sign_up'), new_user_registration_path) %></li>
 
-    <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-      <li><%= link_to t('navigation.links.forgot'), new_password_path(resource_name) %></li>
-    <% end -%>
+    <li><%= link_to t('navigation.links.forgot'), new_password_path(resource_name) %></li>
 
-    <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-      <li><%= link_to t('navigation.links.confirmation'), new_confirmation_path(resource_name) %></li>
-    <% end -%>
+    <li><%= link_to t('navigation.links.confirmation'), new_confirmation_path(resource_name) %></li>
 
     <% Citygate::User.omniauth_providers.each do |provider| %>
       <li><%= link_to t('navigation.links.omniauth', provider: provider.to_s.titleize), omniauth_authorize_path(Citygate::User.new, provider), :id => "#{provider.to_s}" %></li>
