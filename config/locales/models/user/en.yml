@@ -1,0 +1,4 @@
+en:
+  users:
+    errors:
+      too_many: "Too many users"

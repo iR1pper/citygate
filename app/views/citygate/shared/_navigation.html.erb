@@ -1,20 +1,28 @@
 <ul id="citygate-navigation">
   <% if user_signed_in? %>
-    <li><%= link_to('Profile', profile_path) %></li>
-    <li><%= link_to('Edit account', edit_user_registration_path) %></li>
+    <li><%= link_to(t('navigation.links.profile'), profile_path) %></li>
+    <li><%= link_to(t('navigation.links.edit'), edit_user_registration_path) %></li>
 
-    <li><%= link_to('Log out', destroy_user_session_path, :method=>'delete') %></li>
+    <li><%= link_to(t('navigation.links.log_out'), destroy_user_session_path, :method=>'delete') %></li>
   <% else %>
-    <li><%= link_to('Log in', new_user_session_path) %></li>
+    <li><%= link_to(t('navigation.links.log_in'), new_user_session_path) %></li>
 
-    <li><%= link_to('Sign up', new_user_registration_path) %></li>
+    <li><%= link_to(t('navigation.links.sign_up'), new_user_registration_path) %></li>
+
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+      <li><%= link_to t('navigation.links.forgot'), new_password_path(resource_name) %></li>
+    <% end -%>
+
+    <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+      <li><%= link_to t('navigation.links.confirmation'), new_confirmation_path(resource_name) %></li>
+    <% end -%>
 
     <% Citygate::User.omniauth_providers.each do |provider| %>
-      <li><%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(Citygate::User.new, provider), :id => "#{provider.to_s}" %></li>
+      <li><%= link_to t('navigation.links.omniauth', provider: provider.to_s.titleize), omniauth_authorize_path(Citygate::User.new, provider), :id => "#{provider.to_s}" %></li>
     <% end -%>
   <% end %>
 
   <% if can?(:read, Citygate::User) && !params[:controller]["admin"]  %>
-    <li><%= link_to("Admin", admin_users_path) %></li>
+    <li><%= link_to(t('navigation.links.admin'), admin_users_path) %></li>
   <% end %>
 </ul>

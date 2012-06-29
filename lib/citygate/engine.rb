@@ -22,6 +22,8 @@ module Citygate
   class Engine < ::Rails::Engine
     isolate_namespace Citygate
     
+    config.i18n.load_path += Dir[Citygate::Engine.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    
     # Accepts the same options as will_paginate and uses
     # them in the backend
     mattr_accessor :will_paginate_options

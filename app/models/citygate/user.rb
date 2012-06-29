@@ -52,7 +52,7 @@ module Citygate
     
     def check_no_of_users
       if Citygate::Engine.no_of_users > 0 && Citygate::User.count >= Citygate::Engine.no_of_users
-        self.errors.add(:base,"Too many users")
+        self.errors.add(:base,I18n::t('users.errors.too_many'))
         return false
       else
         return true

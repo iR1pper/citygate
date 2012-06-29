@@ -1,0 +1,12 @@
+en:
+  navigation:
+    links:
+      profile: "Profile"
+      edit: "Edit account"
+      log_out: "Log out"
+      log_in: "Log in"
+      sign_up: "Sign up"
+      omniauth: "Sign in with %{provider}"
+      admin: "Admin"
+      forgot: "Forgot your password?"
+      confirmation: "Didn't receive confirmation instructions?"

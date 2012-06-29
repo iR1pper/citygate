@@ -1,0 +1,39 @@
+en:
+  admin:
+    users:
+      # INDEX
+      index:
+        show_link: "Show"
+        edit_link: "Edit"
+      # SHOW
+      show:
+        labels:
+          name: "Name"
+          email: "Email"
+      # EDIT
+      edit:
+        title: "Edit Profile"
+        update_link: "Update"
+        back_link: "Back"
+        cancel_account:
+          title: "Cancel my account"
+          link: "Cancel my account"
+          question: "Unhappy?"
+          confirm: "Are you sure?"
+        hints:
+          password: "(leave blank if you don't want to change it)"
+          current_password: "(we need your current password to confirm your changes)"
+      # NEW
+      new:
+        title: "Sign up"
+        create_link: "Sign up"
+
+  helpers:
+    label:
+      user:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+        current_password: "Current Password"
+          

@@ -8,7 +8,7 @@ class Citygate::ApplicationController < ::ApplicationController
   protect_from_forgery
   
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+    redirect_to root_url, :alert => t('cancan.access_denied')
   end unless ::ApplicationController.rescue_handlers.assoc "CanCan::AccessDenied"
   
   # Gets or creates an Ability instance for usage with CanCan

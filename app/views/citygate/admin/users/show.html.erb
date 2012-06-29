@@ -1,4 +1,13 @@
 <div id="user">
-  <p>User: <%= @user.name %></p>
-  <p>Email: <%= @user.email if @user.email %></p>
+  <p>
+    <span class="label"><%= t('admin.users.show.labels.name') %>:</span>
+    <span class="value"><%= @user.name %></span>
+  </p>
+
+  <% if @user.email %>
+    <p>
+      <span class="label"><%= t('admin.users.show.labels.email') %>:</span>
+      <span class="value"><%= @user.email %></span>
+    </p>
+  <% end %>
 </div>
