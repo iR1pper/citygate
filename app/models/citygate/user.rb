@@ -20,7 +20,7 @@ module Citygate
     has_many :authorizations, :dependent => :destroy
     belongs_to :role
     
-    before_create :check_no_of_users
+    #before_create :check_no_of_users
 
     # Get the json object for an user. Used by to_json.
     # @example
