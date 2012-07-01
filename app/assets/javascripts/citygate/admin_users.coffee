@@ -1,3 +1,2 @@
 $ ->
-  $("a").pjax("#container").on 'click', ->
-    $(this).showLoader()
+  $("a").pjax("#container").on 'click'

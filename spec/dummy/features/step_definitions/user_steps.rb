@@ -38,9 +38,9 @@ end
 def sign_up
   delete_user
   visit '/users/sign_up'
-  fill_in "Email", :with => @visitor[:email]
-  fill_in "Password", :with => @visitor[:password]
-  fill_in "Password confirmation", :with => @visitor[:password_confirmation]
+  fill_in "user_email", :with => @visitor[:email]
+  fill_in "user_password", :with => @visitor[:password]
+  fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
   click_button "Sign up"
   find_user
 end
@@ -145,7 +145,7 @@ end
 
 When /^I edit my account details$/ do
   click_link "Edit account"
-  fill_in "Current password", :with => @visitor[:password]
+  fill_in "user_current_password", :with => @visitor[:password]
   click_button "Update"
 end
 
