@@ -97,10 +97,10 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
   end
 
   def find_for_oauth_by_name(name, resource=nil)
-    if user = Citygate::User.find_by_name(name)
+    if user = Citygate::User.find_by_first_name(name)
       user
     else
-      user = Citygate::User.new(:name => name, :password => Devise.friendly_token[0,20], :email => "#{UUIDTools::UUID.random_create}@host")
+      user = Citygate::User.new(:first_name => name, :password => Devise.friendly_token[0,20], :email => "#{UUIDTools::UUID.random_create}@host")
       user.save false
     end
     return user
