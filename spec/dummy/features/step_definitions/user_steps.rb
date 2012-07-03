@@ -5,7 +5,7 @@ def current_path
 end
 
 def create_visitor
-  @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
+  @visitor ||= { :first_name => "User", :email => "example@example.com",
     :password => "please", :password_confirmation => "please" }
 end
 
