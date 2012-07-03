@@ -15,7 +15,7 @@ module Citygate
     devise  :encryptor => :sha1
     # @!endgroup
 
-    attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :confirmed_at
+    attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :confirmed_at
 
     has_many :authorizations, :dependent => :destroy
     belongs_to :role
@@ -35,21 +35,25 @@ module Citygate
       authorization = self.authorizations.first
       {
         email: email,
-        name: name || (authorization.name if authorization),
+        name: first_name || (authorization.name if authorization),
         link: (authorization.link if authorization),
         image: (authorization.image_url if authorization) || self.gravatar_url
       }
     end
-    
+
     # Get the name if it is present or else get the email
     # @return [String] the name or email of the user
     def name_or_email
-       self.name || self.email
+       self.full_name || self.email
     end
-    
-    
+
+    def full_name
+      "#{self.first_name} #{self.last_name}".strip
+    end
+
+
     protected
-    
+
     def check_no_of_users
       if Citygate::Engine.no_of_users > 0 && Citygate::User.count >= Citygate::Engine.no_of_users
         self.errors.add(:base,I18n::t('users.errors.too_many'))
