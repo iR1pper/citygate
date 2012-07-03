@@ -14,7 +14,7 @@ describe Citygate::User do
   it "should render the correct json hash" do
     fb_user = Factory.create(:facebook_user)
     fb_user.as_json.should == {
-      :first_name  => "User",
+      :name        => "User",
       :email       => "example@example.com",
       :link        => "http://www.facebook.com/luis.zamith",
       :image       => "http://graph.facebook.com/754864768/picture?type=square"
