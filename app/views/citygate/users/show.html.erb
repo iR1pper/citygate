@@ -1,14 +1,16 @@
-<h2 class="name"><%= current_user.name_or_email %></h2>
+<h2><%= current_user.name_or_email %></h2>
 
 <div id="social-accounts">
   <% connected_providers = current_user.authorizations.map(&:provider) %>
 
   <%= connected_providers %>
+
   <% @providers.each do |provider| %>
     <% class_str = "#{provider}-connect " %>
     <% class_str += (connected_providers.include? provider.to_s.capitalize) ? "connected" : "can-connect" %>
-    <div class="<%= class_str %>" >
-      <%= link_to "#{provider.to_s.capitalize}", user_omniauth_authorize_path(provider,{user: current_user}) %>
+
+    <div class="<%= class_str %>">
+      <%= link_to "#{provider.to_s.capitalize}", user_omniauth_authorize_path(provider, {user: current_user}) %>
     </div>
   <% end %>
 </div>
