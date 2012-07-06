@@ -6,8 +6,8 @@ describe Citygate::User do
     @attr = { 
       :first_name            => "User",
       :email                 => "user@example.com",
-      :password              => "foobar",
-      :password_confirmation => "foobar"
+      :password              => "bigpasswordisbig",
+      :password_confirmation => "bigpasswordisbig"
     }
   end
 
