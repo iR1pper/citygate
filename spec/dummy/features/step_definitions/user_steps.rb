@@ -6,7 +6,7 @@ end
 
 def create_visitor
   @visitor ||= { :first_name => "User", :email => "example@example.com",
-    :password => "please", :password_confirmation => "please" }
+    :password => "bigpasswordisbig", :password_confirmation => "bigpasswordisbig" }
 end
 
 def find_user

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Citygate::User do
 
   before(:each) do
-    @attr = { 
+    @attr = {
       :first_name            => "User",
       :email                 => "user@example.com",
       :password              => "bigpasswordisbig",
