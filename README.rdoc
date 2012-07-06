@@ -46,6 +46,16 @@ In case of development add this to +config/environments/development.rb+
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+== OmniAuth Configuration
+
+Citygate needs your facebook apps identifiers which are loaded from a file you must create called +config/accounts.yml+ and has the following format:
+
+  facebook:
+    app_id: "your app id from https://developers.facebook.com/apps"
+    app_secret: "your app secret from https://developers.facebook.com/apps"
+
+In case you are wondering, the reason it is not required for you to add your google OAuth identifier is because it is the same for everyone. It then redirects you to a authentication service within google servers.
+
 == Citygate Options
 
 You can change citygate's defaults by editing your +config/application.rb+ file like so
@@ -60,6 +70,7 @@ The available options are:
 
 will_paginate_options:: an hash with any option supported by paginate[https://github.com/mislav/will_paginate/wiki]
 mount_path:: if you mount the engine in any other path than "/", must define it here as well so that omniauth can be aware of it
+no_of_users:: limit the number of users allowed in your system
 
 == Running Citygate
 

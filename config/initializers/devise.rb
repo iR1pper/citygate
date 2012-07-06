@@ -213,7 +213,7 @@ Devise.setup do |config|
     config.omniauth :open_id, 
                     :store => OpenID::Store::Filesystem.new('/tmp'), 
                     :name => 'google', 
-                    :identifier => ACCOUNTS['google']['identifier'], 
+                    :identifier => "https://www.google.com/accounts/o8/id", 
                     :require => 'omniauth-openid'             
   else
     config.omniauth :facebook, "foo", "bar",
