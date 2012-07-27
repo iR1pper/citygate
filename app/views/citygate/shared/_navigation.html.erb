@@ -13,7 +13,7 @@
       <% end -%>
     <% end %>
 
-    <% if can?(:read, Citygate::User) and !params[:controller]["admin"]  %>
+    <% if can?(:manage, Citygate::User) and !params[:controller]["admin"]  %>
       <li><%= link_to t('navigation.links.admin'), admin_users_path %></li>
     <% end %>
   </ul>
