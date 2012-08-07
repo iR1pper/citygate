@@ -5,6 +5,8 @@ Citygate::Engine.routes.draw do
   
   match '/confirm/:confirmation_token', :to => "devise/confirmations#show", :as => "user_confirm", :only_path => false
   
+  match "/home/role_change", :to => "home#role_change", :via => :post
+  
   devise_for :users, 
              :controllers => { 
                :omniauth_callbacks => "citygate/users/omniauth_callbacks"

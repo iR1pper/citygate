@@ -1,0 +1,5 @@
+<% p @role %>
+
+<%= form_for @role, url: home_role_change_path do |f| %>
+  <%= select "role", "id", Citygate::Role.all.collect {|r| [r.name, r.id]} %>
+<% end %>
