@@ -16,7 +16,7 @@ roles.each do |attributes|
   Citygate::Role.find_or_initialize_by_name(attributes[:name]).save!
 end
 
-puts 'Creating permission for citygate...'
+puts 'Creating permissions for citygate...'
 permissions = [
   # Guest
   {:action => "index", :subject_class => "home", :role_id => nil },
