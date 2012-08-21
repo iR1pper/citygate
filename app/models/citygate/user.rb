@@ -53,6 +53,9 @@ module Citygate
       "#{self.first_name} #{self.last_name}".strip
     end
 
+    def to_s
+      self.name_or_email
+    end
 
     protected
 
