@@ -1,1 +1,1 @@
-ACCOUNTS = YAML.load_file("#{Citygate.root}/config/accounts.yml") unless Rails.env.test?
+ACCOUNTS = YAML.load_file("#{Rails.root}/config/accounts.yml") unless Rails.env.test?
