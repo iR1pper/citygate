@@ -50,7 +50,8 @@ module Citygate
     # Get the user's full name (the concatenation of his first and last names)
     # @return [String] the user's full name
     def full_name
-      "#{self.first_name} #{self.last_name}".strip
+      name = "#{self.first_name} #{self.last_name}".strip
+      (name.blank?) ? nil : name
     end
 
     def to_s

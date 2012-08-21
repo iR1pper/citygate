@@ -11,6 +11,17 @@ describe Citygate::User do
     }
   end
 
+  it "should return the full name if it has one" do
+    @user = Citygate::User.new(@attr)
+    @user.to_s.should == "User"
+  end
+
+  it "should return the full name if it has one" do
+    @attr.delete :first_name
+    @user = Citygate::User.new(@attr)
+    @user.to_s.should == "user@example.com"
+  end
+
   it "should render the correct json hash" do
     fb_user = Factory.create(:facebook_user)
     fb_user.as_json.should == {
