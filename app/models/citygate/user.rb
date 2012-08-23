@@ -54,6 +54,7 @@ module Citygate
       (name.blank?) ? nil : name
     end
 
+    # Alias for name_or_email
     def to_s
       self.name_or_email
     end

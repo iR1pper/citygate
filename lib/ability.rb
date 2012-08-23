@@ -6,9 +6,12 @@ class Ability
   # calls the corresponding method to its role
   # @param [Citygate::User] user the current user
   def initialize(user)
+    # This runs only once
+    @@permissions ||= Citygate::Permission.load_all
+
     @user = user || Citygate::User.new # guest user (not logged in)
 
-    Citygate::Permission.find_all_by_role_id(nil).each do |permission|
+    @@permissions[:guest].each do |permission|
       handle_permission permission
     end
 
@@ -19,7 +22,7 @@ class Ability
 
   # Defines the permissions on a user with the role of member
   def member
-    Citygate::Permission.find_all_by_role_id(1).each do |permission|
+    @@permissions[:member].each do |permission|
       handle_permission permission
     end
   end
@@ -27,7 +30,7 @@ class Ability
   # Defines the permissions on a user with the role of admin, which inherits from member
   def admin
     member
-    Citygate::Permission.find_all_by_role_id(2).each do |permission|
+    @@permissions[:admin].each do |permission|
       handle_permission permission
     end
   end
