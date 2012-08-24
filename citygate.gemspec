@@ -31,7 +31,6 @@ Gem::Specification.new do |s|
   s.add_dependency "sass-rails"
   
   s.add_development_dependency     "thin", ">= 1.3.1"  
-  s.add_development_dependency     "haml-rails", ">= 0.3.4"
   s.add_development_dependency     "rspec-rails",      ">= 2.8.1"
   s.add_development_dependency     "email_spec",       ">= 1.2.1"
   s.add_development_dependency     "factory_girl",     "2.6.4"
