@@ -1,14 +1,22 @@
-<%= form_for @user, :url => admin_user_path(@user), :html => { :id => dom_id(@post, :edit) } do |f| %>
+<%= form_for @user, :url => admin_user_path(@user), :method => :put, :html => { :id => dom_id(@post, :edit) } do |f| %>
   <%#= devise_error_messages! %>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
 
-  <%= f.submit t('admin.users.edit.update_link') %>
+  <div class="actions">
+    <%= f.submit t('admin.users.edit.update_link') %>
+  </div>
 <% end %>
