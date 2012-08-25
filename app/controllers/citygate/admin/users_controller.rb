@@ -14,4 +14,21 @@ class Citygate::Admin::UsersController < Citygate::Admin::ApplicationController
     respond_with @user
   end
 
+  def edit
+    @user = Citygate::User.find(params[:id])
+
+    respond_with @user
+  end
+
+  def update
+    @user = Citygate::User.find(params[:id])
+
+    if @user.update_without_password(params[:user])
+      flash[:notice] = t('admin.users.update.success')
+      redirect_to :action => 'show'
+    else
+      flash[:error] = t('admin.users.update.error')
+      redirect_to :action => 'edit'
+    end
+  end
 end

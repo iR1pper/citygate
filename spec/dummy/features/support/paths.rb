@@ -20,6 +20,9 @@ module NavigationHelpers
       
     when /the users admin page/
       admin_users_path
+
+    when /the user admin page/
+      admin_user_path(1)
       
     when /the login page/
       root_path

@@ -157,6 +157,14 @@ When /^I click (.*)$/ do |link|
   click_link link
 end
 
+When /^I submit the form$/ do
+  page.evaluate_script("document.forms[0].submit()")
+end
+
+When /^I fill in '(.*)' with '(.*)'$/ do |field, value|
+  fill_in field, :with => value
+end
+
 When /^I go back in history$/ do
   sleep 2
   page.execute_script("history.back()")
@@ -218,6 +226,10 @@ Then /^I should see an account edited message$/ do
   page.should have_content "You updated your account successfully."
 end
 
+Then /^I should see a user edit success message$/ do
+  page.should have_content "User updated successfully"
+end
+
 Then /^I should (not )?see my (.*)$/ do |nonexistent, attribute|
   create_or_get_user
   if nonexistent
@@ -229,6 +241,10 @@ end
 
 Then /^I should see the (.*) of user number (.*)$/ do |attribute,id|
   page.should have_content Citygate::User.find(id)[attribute]
+end
+
+Then /^the (.*) of user number (\d+) should now be '(.*)'$/ do |attribute, id, value|
+  Citygate::User.find(id)[attribute].should == value
 end
 
 Then /^the element with (class |id )(.*) should (not )?exist$/ do |type, name, nonexistent|

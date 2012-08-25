@@ -42,3 +42,16 @@ Feature: Admin Users
       And I go back in history
       Then I should be redirected to the users admin page
       And I should see the name of user number 1
+
+    @javascript
+    Scenario: Editing a user should work as expected
+      Given I exist as a user
+      And I am logged in
+      And I am an admin
+      When I look at the list of users
+      And I click Edit
+      And I fill in 'user_first_name' with 'new first name'
+      And I submit the form
+      Then I should be redirected to the user admin page
+      And I should see a user edit success message
+      And the first_name of user number 1 should now be 'new first name'

@@ -1,0 +1,6 @@
+en:
+  admin:
+    users:
+      update:
+        success: "User updated successfully"
+        error: "Error updating user"

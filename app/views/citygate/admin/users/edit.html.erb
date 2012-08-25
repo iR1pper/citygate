@@ -1,0 +1,14 @@
+<%= form_for @user, :url => admin_user_path(@user), :html => { :id => 'user-edit' } do |f| %>
+  <%#= devise_error_messages! %>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.submit t('admin.users.edit.update_link') %>
+<% end %>
