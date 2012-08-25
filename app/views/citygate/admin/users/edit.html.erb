@@ -1,4 +1,4 @@
-<%= form_for @user, :url => admin_user_path(@user), :html => { :id => 'user-edit' } do |f| %>
+<%= form_for @user, :url => admin_user_path(@user), :html => { :id => dom_id(@post, :edit) } do |f| %>
   <%#= devise_error_messages! %>
 
   <%= f.label :first_name %>
