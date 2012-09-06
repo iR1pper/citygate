@@ -56,6 +56,12 @@ Citygate needs your facebook apps identifiers which are loaded from a file you m
 
 In case you are wondering, the reason it is not required for you to add your google OAuth identifier is because it is the same for everyone. It then redirects you to a authentication service within google servers.
 
+== Loading Assets
+
+In order to have the javascript added by Citygate you need to include it in your manifest file, like so:
+
+  //= require citygate
+
 == Citygate Options
 
 You can change citygate's defaults by editing your +config/application.rb+ file like so
