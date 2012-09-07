@@ -7,6 +7,10 @@ module Citygate
         render :partial => "citygate/home/role_changer"
       end
     end
+
+    def citygate_nav_links
+      render 'citygate/shared/navigation'
+    end
     
   end
 end
