@@ -21,10 +21,6 @@ module Citygate
 
   class Engine < ::Rails::Engine
     isolate_namespace Citygate
-
-    config.to_prepare do
-      ApplicationController.helper(Citygate::ApplicationHelper)
-    end
     
     config.i18n.load_path += Dir[Citygate::Engine.root.join('config', 'locales', '**', '*.{rb,yml}')]
     

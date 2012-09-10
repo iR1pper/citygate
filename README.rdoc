@@ -46,6 +46,19 @@ In case of development add this to +config/environments/development.rb+
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+== Helper Configuration
+
+In order to get the helper methods citygate exposes you'll have to include them in your +app/controllers/application_controller.rb+ like so:
+
+  class ApplicationController < ActionController::Base
+    helper Citygate::Engine.helpers
+  end
+
+The exposed methods are:
+
+role_changer:: a select for changing roles (only available when logged in and in development)
+citygate_nav_links:: the default +nav+ for citygate with sign in, log out and admin links
+
 == OmniAuth Configuration
 
 Citygate needs your facebook apps identifiers which are loaded from a file you must create called +config/accounts.yml+ and has the following format:
@@ -53,6 +66,8 @@ Citygate needs your facebook apps identifiers which are loaded from a file you m
   facebook:
     app_id: "your app id from https://developers.facebook.com/apps"
     app_secret: "your app secret from https://developers.facebook.com/apps"
+
+This file is not required for the application to run, but without it the facebook login will not work.
 
 In case you are wondering, the reason it is not required for you to add your google OAuth identifier is because it is the same for everyone. It then redirects you to a authentication service within google servers.
 

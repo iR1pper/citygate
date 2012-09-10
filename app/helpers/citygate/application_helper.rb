@@ -11,6 +11,6 @@ module Citygate
     def citygate_nav_links
       render 'citygate/shared/navigation'
     end
-    
+
   end
 end
