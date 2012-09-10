@@ -13,7 +13,7 @@
     <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
   <% end %>
 
-  <div id="container" class="container">
+  <div id="pjax-container" class="container">
     <%= yield %>
   </div>
 </body>

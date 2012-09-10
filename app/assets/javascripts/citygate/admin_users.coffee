@@ -1,2 +1,2 @@
 $ ->
-  $("a").pjax("#container").on 'click'
+  $("a").pjax("#pjax-container").on 'click'
