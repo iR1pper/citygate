@@ -2,11 +2,11 @@
   <ul>
     <% if user_signed_in? %>
       <% if can?(:manage, Citygate::User) and !params[:controller]["admin"]  %>
-        <li><%= link_to t('navigation.links.admin'), citygate.admin_users_path %></li>
+        <li><%= link_to t('navigation.links.admin'), citygate.admin_users_path, class: 'icon admin' %></li>
       <% end %>
 
-      <li><%= link_to t('navigation.links.profile'), citygate.profile_path, class: 'profile' %></li>
-      <li><%= link_to t('navigation.links.log_out'), citygate.destroy_user_session_path, :method => 'delete' %></li>
+      <li><%= link_to t('navigation.links.profile'), citygate.profile_path, class: 'icon profile' %></li>
+      <li><%= link_to t('navigation.links.log_out'), citygate.destroy_user_session_path, class: 'icon logout', method: 'delete' %></li>
     <% else %>
       <li><%= link_to t('navigation.links.log_in'), citygate.new_user_session_path %></li>
       <li><%= link_to t('navigation.links.sign_up'), citygate.new_user_registration_path %></li>
