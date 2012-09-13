@@ -12,6 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require citygate/jquery.pjax
-//= require citygate/admin_users
 //= require citygate/home

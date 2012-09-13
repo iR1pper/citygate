@@ -4,12 +4,10 @@ class Citygate::Admin::ApplicationController < Citygate::ApplicationController
 
   private
   def set_layout
-    if request.headers['X-PJAX-layout']
-      "admin/application"
-    elsif request.headers['X-PJAX']
+    if request.headers['X-NO-LAYOUT']
       false
     else
-      "admin/application"
+      "admin"
     end
   end
 end

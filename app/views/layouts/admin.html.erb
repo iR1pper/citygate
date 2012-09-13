@@ -6,15 +6,15 @@
   <%= csrf_meta_tags %>
   <%= yield :head %>
 </head>
-<body data-pjax-container>
+<body>
   <%= render 'citygate/shared/navigation' %>
 
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
   <% end %>
 
-  <div id="pjax-container" class="container">
+  <div id="main">
     <%= yield %>
-  </div>
+  </div> <!-- /main -->
 </body>
 </html>
