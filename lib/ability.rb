@@ -42,17 +42,32 @@ class Ability
     def handle_permission(permission)
       if permission.subject_id.nil?
         begin
-          can permission.action.to_sym, permission.subject_class.constantize
+          can permission.action.to_sym, permission.subject_class.constantize, generate_conditions_hash(permission)
         rescue
-          can permission.action.to_sym, permission.subject_class.to_sym
+          can permission.action.to_sym, permission.subject_class.to_sym, generate_conditions_hash(permission)
         end
       else
         begin
-          can permission.action.to_sym, permission.subject_class.constantize, :id => permission.subject_id
+          can permission.action.to_sym, permission.subject_class.constantize, generate_conditions_hash(permission)
         rescue
-          can permission.action.to_sym, permission.subject_class.to_sym, :id => permission.subject_id
+          can permission.action.to_sym, permission.subject_class.to_sym, generate_conditions_hash(permission)
         end
       end
+    end
+
+    def generate_conditions_hash(permission)
+      conditions_hash = {}
+      if permission.conditions
+
+        permission.conditions.split(",").each do |condition|
+          key,value = conditions_hash.split("#")
+          conditions_hash[key] = value
+        end
+        
+        conditions_hash.merge({id: permission.subject_id}) if permission.subject_id
+      end
+      
+      return conditions_hash
     end
 
 end

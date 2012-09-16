@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120727145840) do
+ActiveRecord::Schema.define(:version => 20120916223209) do
 
   create_table "citygate_authorizations", :force => true do |t|
     t.string   "provider"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20120727145840) do
     t.string  "subject_class", :null => false
     t.string  "subject_id"
     t.integer "role_id"
+    t.string  "conditions"
   end
 
   add_index "citygate_permissions", ["role_id"], :name => "index_citygate_permissions_on_role_id"
