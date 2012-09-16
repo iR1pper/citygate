@@ -61,7 +61,7 @@ class Ability
 
         permission.conditions.split(",").each do |condition|
           key,value = conditions_hash.split("#")
-          conditions_hash[key] = value
+          conditions_hash[key.to_sym] = instance_eval value
         end
         
         conditions_hash.merge({id: permission.subject_id}) if permission.subject_id
