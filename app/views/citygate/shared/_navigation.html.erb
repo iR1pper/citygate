@@ -1,21 +1,19 @@
 <nav>
   <ul>
     <% if user_signed_in? %>
-      <li><%= link_to t('navigation.links.profile'), citygate.profile_path %></li>
-      <li><%= link_to t('navigation.links.edit'), citygate.edit_user_registration_path %></li>
-      <li><%= link_to t('navigation.links.log_out'), citygate.destroy_user_session_path, :method => 'delete' %></li>
+      <% if can?(:manage, Citygate::User) and !params[:controller]["admin"]  %>
+        <li><i class='icon-cog'></i><%= link_to t('navigation.links.admin'), citygate.admin_users_path %></li>
+      <% end %>
+
+      <li><i class='icon-user'></i><%= link_to t('navigation.links.profile'), citygate.profile_path %></li>
+      <li><i class='icon-unlock'></i><%= link_to t('navigation.links.log_out'), citygate.destroy_user_session_path, method: 'delete' %></li>
     <% else %>
       <li><%= link_to t('navigation.links.log_in'), citygate.new_user_session_path %></li>
       <li><%= link_to t('navigation.links.sign_up'), citygate.new_user_registration_path %></li>
 
       <% Citygate::User.omniauth_providers.each do |provider| %>
         <li><%= link_to t('navigation.links.omniauth', provider: provider.to_s.titleize), "/users/auth/#{provider.to_s}", :id => "#{provider.to_s}" %></li>
-        
       <% end -%>
-    <% end %>
-
-    <% if can?(:manage, Citygate::User) and !params[:controller]["admin"]  %>
-      <li><%= link_to t('navigation.links.admin'), citygate.admin_users_path %></li>
     <% end %>
   </ul>
 </nav>
