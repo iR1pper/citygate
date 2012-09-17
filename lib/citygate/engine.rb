@@ -27,7 +27,7 @@ module Citygate
     # Accepts the same options as will_paginate and uses
     # them in the backend
     mattr_accessor :will_paginate_options
-    @@will_paginate_options = {per_page: 1}
+    @@will_paginate_options = {per_page: 10}
     
     # If the mount path of citygate in the app changes,
     # this must change

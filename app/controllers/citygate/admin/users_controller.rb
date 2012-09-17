@@ -31,4 +31,11 @@ class Citygate::Admin::UsersController < Citygate::Admin::ApplicationController
       redirect_to :action => 'edit'
     end
   end
+
+  def destroy
+    @user = Citygate::User.find(params[:id])
+    @user.destroy
+
+    redirect_to admin_users_path
+  end
 end
