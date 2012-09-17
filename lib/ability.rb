@@ -56,11 +56,11 @@ class Ability
     end
 
     def generate_conditions_hash(permission)
+      user = @user
       conditions_hash = {}
       if permission.conditions
-
         permission.conditions.split(",").each do |condition|
-          key,value = conditions_hash.split("#")
+          key,value = condition.split("#")
           conditions_hash[key.to_sym] = instance_eval value
         end
         
