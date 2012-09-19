@@ -2,11 +2,15 @@ en:
   admin:
     users:
       index:
+        title: "Users"
         show_link: "Show"
         edit_link: "Edit"
+        delete_link: "Delete"
       show:
         labels:
           name: "Name"
+          first_name: "First name"
+          last_name: "Last name"
           email: "Email"
       edit:
         title: "Edit Profile"
@@ -25,6 +29,8 @@ en:
     label:
       user:
         name: "Name"
+        first_name: "First name"
+        last_name: "Last name"
         email: "Email"
         password: "Password"
         password_confirmation: "Password Confirmation"
