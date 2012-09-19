@@ -15,7 +15,7 @@ module Citygate
     devise  :encryptor => :sha1
     # @!endgroup
 
-    attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :confirmed_at
+    attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :confirmed_at, :role_id
 
     has_many :authorizations, :dependent => :destroy
     belongs_to :role

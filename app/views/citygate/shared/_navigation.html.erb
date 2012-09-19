@@ -1,7 +1,7 @@
 <nav>
   <ul>
     <% if user_signed_in? %>
-      <% if can?(:manage, Citygate::User) and !params[:controller]["admin"]  %>
+      <% if can?(:manage, Citygate::User) %>
         <li><i class='icon-cog'></i><%= link_to t('navigation.links.admin'), citygate.admin_users_path %></li>
       <% end %>
 
@@ -12,7 +12,9 @@
       <li><%= link_to t('navigation.links.sign_up'), citygate.new_user_registration_path %></li>
 
       <% Citygate::User.omniauth_providers.each do |provider| %>
-        <li><%= link_to t('navigation.links.omniauth', provider: provider.to_s.titleize), "/users/auth/#{provider.to_s}", :id => "#{provider.to_s}" %></li>
+        <% if provider != "facebook" %>
+          <li><%= link_to t('navigation.links.omniauth', provider: provider.to_s.titleize), "/users/auth/#{provider.to_s}", :id => "#{provider.to_s}" %></li>
+        <% end %>
       <% end -%>
     <% end %>
   </ul>
