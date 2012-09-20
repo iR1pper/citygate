@@ -61,7 +61,7 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><div id='filecontents'><h1>Citygate <a href="http://travis-ci.org/zamith/citygate"><img src="https://secure.travis-ci.org/zamith/citygate.png" /></a></h1>
+    <div id="content"><div id='filecontents'><h1><a href="http://github.com/zamith/citygate"><img style="max-width:100%;width: 36%;float: left;" src="http://i50.tinypic.com/wag4d4.png"></a> <a href="http://travis-ci.org/zamith/citygate"><img src="https://secure.travis-ci.org/zamith/citygate.png" /></a></h1>
 <p>
 Citygate is a rails engine that provides your application with user
 authentication (on the site or through facebook or google) using Devise and
@@ -132,6 +132,59 @@ In case of development add this to
 <pre class="code ruby"><code>
   <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_action_mailer'>action_mailer</span><span class='period'>.</span><span class='id identifier rubyid_default_url_options'>default_url_options</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='symbol'>:host</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>localhost:3000</span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span>
 </code></pre>
+<h2>Helper Configuration</h2>
+<p>
+In order to get the helper methods citygate exposes you&#8217;ll have to
+include them in your <tt>app/controllers/application_controller.rb</tt>
+like so:
+</p>
+<pre class="code ruby"><code>
+  <span class='kw'>class</span> <span class='const'>ApplicationController</span> <span class='op'>&lt;</span> <span class='const'>ActionController</span><span class='op'>::</span><span class='const'>Base</span>
+    <span class='id identifier rubyid_helper'>helper</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>Engine</span><span class='period'>.</span><span class='id identifier rubyid_helpers'>helpers</span>
+  <span class='kw'>end</span>
+</code></pre>
+<p>
+The exposed methods are:
+</p>
+<table>
+<tr><td valign="top">role_changer</td><td><p>
+a select for changing roles (only available when logged in and in
+development)
+</p>
+</td></tr>
+<tr><td valign="top">citygate_nav_links</td><td><p>
+the default <tt>nav</tt> for citygate with sign in, log out and admin links
+</p>
+</td></tr>
+</table>
+<h2>OmniAuth Configuration</h2>
+<p>
+Citygate needs your facebook apps identifiers which are loaded from a file
+you must create called <tt>config/accounts.yml</tt> and has the following
+format:
+</p>
+<pre class="code ruby"><code>
+  facebook:
+    app_id: &quot;your app id from https://developers.facebook.com/apps&quot;
+    app_secret: &quot;your app secret from https://developers.facebook.com/apps&quot;
+</code></pre>
+<p>
+This file is not required for the application to run, but without it the
+facebook login will not work.
+</p>
+<p>
+In case you are wondering, the reason it is not required for you to add
+your google OAuth identifier is because it is the same for everyone. It
+then redirects you to a authentication service within google servers.
+</p>
+<h2>Loading Assets</h2>
+<p>
+In order to have the javascript added by Citygate you need to include it in
+your manifest file, like so:
+</p>
+<pre class="code ruby"><code>
+  //= require citygate
+</code></pre>
 <h2>Citygate Options</h2>
 <p>
 You can change citygate&#8217;s defaults by editing your
@@ -157,6 +210,10 @@ if you mount the engine in any other path than &#8220;/&#8221;, must define
 it here as well so that omniauth can be aware of it
 </p>
 </td></tr>
+<tr><td valign="top">no_of_users</td><td><p>
+limit the number of users allowed in your system
+</p>
+</td></tr>
 </table>
 <h2>Running Citygate</h2>
 <p>
@@ -172,7 +229,7 @@ href="http://rubydoc.info/github/zamith/citygate/master/frames">RubyDoc</a>
 </div></div>
 
     <div id="footer">
-  Generated on Thu Jun 28 01:19:59 2012 by
+  Generated on Thu Sep 20 15:56:36 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.2.1 (ruby-1.9.2).
 </div>

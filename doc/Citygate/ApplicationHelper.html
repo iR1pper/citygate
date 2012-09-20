@@ -91,12 +91,139 @@
 
 
 
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
 
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#citygate_nav_links-instance_method" title="#citygate_nav_links (instance method)">- (Object) <strong>citygate_nav_links</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#role_changer-instance_method" title="#role_changer (instance method)">- (Object) <strong>role_changer</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="citygate_nav_links-instance_method">
+  
+    - (<tt>Object</tt>) <strong>citygate_nav_links</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/citygate/application_helper.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_citygate_nav_links'>citygate_nav_links</span>
+  <span class='id identifier rubyid_render'>render</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>citygate/shared/navigation</span><span class='tstring_end'>'</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="role_changer-instance_method">
+  
+    - (<tt>Object</tt>) <strong>role_changer</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+4
+5
+6
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/citygate/application_helper.rb', line 4</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_role_changer'>role_changer</span>
+  <span class='kw'>if</span> <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_env'>env</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>development</span><span class='tstring_end'>&quot;</span></span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_current_user'>current_user</span>
+    <span class='ivar'>@role</span> <span class='op'>=</span> <span class='id identifier rubyid_current_user'>current_user</span><span class='period'>.</span><span class='id identifier rubyid_role'>role</span> <span class='op'>||</span> <span class='const'>Citygate</span><span class='op'>::</span><span class='const'>Role</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+    <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:partial</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>citygate/home/role_changer</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 </div>
 
     <div id="footer">
-  Generated on Thu Jun 28 01:19:59 2012 by
+  Generated on Thu Sep 20 15:56:36 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.2.1 (ruby-1.9.2).
 </div>
