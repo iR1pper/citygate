@@ -1,4 +1,4 @@
-= Citygate {<img src="https://secure.travis-ci.org/zamith/citygate.png" />}[http://travis-ci.org/zamith/citygate]
+= {<img src="http://i50.tinypic.com/wag4d4.png">}[http://github.com/zamith/citygate] {<img src="https://secure.travis-ci.org/zamith/citygate.png" />}[http://travis-ci.org/zamith/citygate]
 
 Citygate is a rails engine that provides your application with user authentication (on the site or through facebook or google) using Devise and fully customizable authorization using CanCan.
 
