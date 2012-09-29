@@ -38,7 +38,7 @@ Feature: Admin Users
       And I am logged in
       And I am an admin
       When I look at the list of users
-      And I click Show
+      And I click Edit
       And I go back in history
       Then I should be redirected to the users admin page
       And I should see the name of user number 1

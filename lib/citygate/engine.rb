@@ -27,7 +27,7 @@ module Citygate
     # Accepts the same options as will_paginate and uses
     # them in the backend
     mattr_accessor :will_paginate_options
-    @@will_paginate_options = {per_page: 10}
+    @@will_paginate_options = { per_page: 10 }
     
     # If the mount path of citygate in the app changes,
     # this must change
@@ -37,6 +37,13 @@ module Citygate
     # The maximum number of allowed users. 0 is unlimited.
     mattr_accessor :no_of_users
     @@no_of_users = 0
+
+    #The roles in the system (guest is implicit)
+    mattr_accessor :roles
+    @@roles = [
+      { name: "member" }, 
+      { name: "admin" }
+    ]
     
     def configure
       yield self

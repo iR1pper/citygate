@@ -8,6 +8,7 @@ class Ability
   def initialize(user)
     # This runs only once
     @@permissions ||= Citygate::Permission.load_all
+    @@defined_roles ||= Ability.define_roles
 
     @user = user || Citygate::User.new # guest user (not logged in)
 
@@ -20,24 +21,43 @@ class Ability
     end
   end
 
+  def self.define_roles
+    Citygate::Engine.roles.each do |role_def|
+      role = role_def[:name].to_sym
+      if @@permissions.has_key? role
+        define_method role, do 
+          @@permissions[role].each do |permission|
+            handle_permission permission
+          end
+        end
+      else
+        define_method role, do
+          []
+        end
+      end
+    end
+
+    true
+  end
+
   # Defines the permissions on a user with the role of member
-  def member
-    @@permissions[:member].each do |permission|
-      handle_permission permission
-    end
-  end
+  #def member
+  #  @@permissions[:member].each do |permission|
+  #    handle_permission permission
+  #  end
+  #end
 
-  # Defines the permissions on a user with the role of admin
-  # As this is a super admin that can do anything, it does not need
-  # to inherit from member
-  def admin
-    #member
-    @@permissions[:admin].each do |permission|
-      handle_permission permission
-    end
-  end
+  ## Defines the permissions on a user with the role of admin
+  ## As this is a super admin that can do anything, it does not need
+  ## to inherit from member
+  #def admin
+  #  #member
+  #  @@permissions[:admin].each do |permission|
+  #    handle_permission permission
+  #  end
+  #end
 
-  protected
+  private
 
     def handle_permission(permission)
       if permission.subject_id.nil?

@@ -9,6 +9,9 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
+    when /my profile page/
+      profile_path
+
     when /the home\s?page/
       root_path
 

@@ -62,6 +62,12 @@ Given /^I am logged in$/ do
   sign_in
 end
 
+Given /^I am a member$/ do
+  create_or_get_user
+  @user.role_id = 1
+  @user.save
+end
+
 Given /^I am an admin$/ do
   create_or_get_user
   @user.role_id = 2
