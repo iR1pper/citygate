@@ -25,13 +25,13 @@ class Ability
     Citygate::Engine.roles.each do |role_def|
       role = role_def[:name].to_sym
       if @@permissions.has_key? role
-        define_method role, do 
+        define_method role do 
           @@permissions[role].each do |permission|
             handle_permission permission
           end
         end
       else
-        define_method role, do
+        define_method role do
           []
         end
       end
