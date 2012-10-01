@@ -45,6 +45,15 @@ describe Ability do
       ability.should respond_to :crazy_man
     end
 
+    it "gives the correct permissions to a role with capitalized roles" do
+      ability = create_ability_with_capitalized_roles
+
+      member_permission = ability.member.first
+
+      member_permission.action.should eq "read"
+      member_permission.subject_class.should eq "Citygate::User"
+    end
+
     def create_ability_with_roles
       reload_ability_class
 

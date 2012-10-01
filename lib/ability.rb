@@ -40,23 +40,6 @@ class Ability
     true
   end
 
-  # Defines the permissions on a user with the role of member
-  #def member
-  #  @@permissions[:member].each do |permission|
-  #    handle_permission permission
-  #  end
-  #end
-
-  ## Defines the permissions on a user with the role of admin
-  ## As this is a super admin that can do anything, it does not need
-  ## to inherit from member
-  #def admin
-  #  #member
-  #  @@permissions[:admin].each do |permission|
-  #    handle_permission permission
-  #  end
-  #end
-
   private
 
     def handle_permission(permission)
