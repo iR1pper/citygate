@@ -37,10 +37,16 @@ describe Ability do
       member_permission.subject_class.should eq "Citygate::User"
     end
 
+    it "lowercases the names of the role methods" do
+      ability = create_ability_with_capitalized_roles
+
+      ability.should respond_to :member
+      ability.should respond_to :admin
+      ability.should respond_to :crazy_man
+    end
+
     def create_ability_with_roles
-      # To make sure there are no cached values in each run
-      Object.send(:remove_const, :Ability)
-      load "#{Citygate::Engine.root}/lib/ability.rb"
+      reload_ability_class
 
       roles = [
         { name: "member" }, 
@@ -49,6 +55,24 @@ describe Ability do
       ]
       Citygate::Engine.stub(:roles).and_return(roles)
       Ability.new Citygate::User.new
+    end
+
+    def create_ability_with_capitalized_roles
+      reload_ability_class
+
+      roles = [
+        { name: "Member" }, 
+        { name: "Admin" },
+        { name: "Crazy_man" }
+      ]
+      Citygate::Engine.stub(:roles).and_return(roles)
+      Ability.new Citygate::User.new
+    end
+
+    def reload_ability_class
+      # To make sure there are no cached values in each run
+      Object.send(:remove_const, :Ability)
+      load "#{Citygate::Engine.root}/lib/ability.rb"
     end
   end
 end

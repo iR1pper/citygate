@@ -23,7 +23,7 @@ class Ability
 
   def self.define_roles
     Citygate::Engine.roles.each do |role_def|
-      role = role_def[:name].to_sym
+      role = role_def[:name].downcase.to_sym
       if @@permissions.has_key? role
         define_method role do 
           @@permissions[role].each do |permission|
