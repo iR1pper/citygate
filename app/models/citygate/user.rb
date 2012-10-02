@@ -22,6 +22,25 @@ module Citygate
     
     before_create :check_no_of_users
 
+    def method_missing(method_name, *args, &block)
+      if method_name.to_s =~ /^is_(.*)\?$/ && Citygate::Role.underscored_role_names.include?($1)
+        self.class.send :define_method, method_name do
+          self.role.name.underscore == method_name.to_s.match(/is_(.*)\?/)[1]
+        end
+        self.send method_name
+      else
+        super
+      end
+    end
+
+    def respond_to?(method_name, include_private = false)
+      if method_name.to_s =~ /^is_(.*)\?$/ && Citygate::Role.underscored_role_names.include?($1)
+        true
+      else
+        super
+      end
+    end
+
     # Get the json object for an user. Used by to_json.
     # @example
     #   {
@@ -59,7 +78,7 @@ module Citygate
       self.name_or_email
     end
 
-    protected
+    private
 
     def check_no_of_users
       if Citygate::Engine.no_of_users > 0 && Citygate::User.count >= Citygate::Engine.no_of_users

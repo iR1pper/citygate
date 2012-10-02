@@ -108,4 +108,51 @@ describe Citygate::User do
     it { should respond_to(:encrypted_password) }
     its(:encrypted_password) { should_not be_blank }
   end
+
+  context "is_a methods" do
+    it "has an is_x? method for each role" do
+      user = create_user
+      #ability = create_ability_with_roles_for_user user
+      role_names = [
+        mock_model(Citygate::Role, name: "member"),
+        mock_model(Citygate::Role, name: "admin"),
+        mock_model(Citygate::Role, name: "crazy_man")
+      ]
+      Citygate::Role.stub(:select).with(:name).and_return(role_names)
+
+      user.stub(:role).and_return mock_model(Citygate::Role, name: "member")
+      user.should respond_to :is_member?
+
+      user.stub(:role).and_return mock_model(Citygate::Role, name: "admin")
+      user.should respond_to :is_admin?
+
+      user.stub(:role).and_return mock_model(Citygate::Role, name: "crazy_man")
+      user.should respond_to :is_crazy_man?
+    end
+
+    it "gives an answer to is_admin?" do
+      user = create_user
+      Citygate::User.remove_possible_method :is_admin?
+
+      role_names = [ mock_model(Citygate::Role, name: "admin") ]
+      Citygate::Role.stub(:select).with(:name).and_return(role_names)
+
+      user.stub(:role).and_return mock_model(Citygate::Role, name: "admin")
+      user.is_admin?.should eq true
+    end
+  end
+
+  def create_user
+    Citygate::User.new(@attr)
+  end
+
+  def create_ability_with_roles_for_user(user)
+    roles = [
+      { name: "member" }, 
+      { name: "admin" },
+      { name: "crazy_man" }
+    ]
+    Citygate::Engine.stub(:roles).and_return(roles)
+    Ability.new user
+  end
 end
