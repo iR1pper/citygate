@@ -4,7 +4,7 @@ $ ->
 
     select_new_role: ->
       role_selector.$el.on "change", (event) ->
-        $.post "home/role_change", { data: role_selector.$el.val() }, (data) ->
+        $.post "/home/role_change", { data: role_selector.$el.val() }, (data) ->
           window.location.href = data.redirect
 
     init: ->
