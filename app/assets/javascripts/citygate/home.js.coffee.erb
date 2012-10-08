@@ -1,16 +1,14 @@
 $ ->
   role_selector =
-    $el: $("#role_id")
-
     select_new_role: ->
-      role_selector.$el.on "change", (event) ->
-        $.post "/home/role_change", { data: role_selector.$el.val() }, (data) ->
+      $("#role_id").on "change", (event) ->
+        $.post "/home/role_change", { data: $("#role_id").val() }, (data) ->
           window.location.href = data.redirect
 
     init: ->
       role_selector.select_new_role()
 
   # When using turbolinks
-  $(window).on 'page:change', role_selector.init()
+  $(window).bind 'page:change', role_selector.init()
   # otherwise
   role_selector.init()
