@@ -10,4 +10,4 @@ $ ->
     init: ->
       role_selector.select_new_role()
 
-  role_selector.init()
+  $(document).on 'page:change', role_selector.init()

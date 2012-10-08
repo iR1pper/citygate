@@ -25,7 +25,11 @@ module Citygate
     def method_missing(method_name, *args, &block)
       if method_name.to_s =~ /^is_(.*)\?$/ && Citygate::Role.underscored_role_names.include?($1)
         self.class.send :define_method, method_name do
-          self.role.name.underscore == method_name.to_s.match(/is_(.*)\?/)[1]
+          if self.role
+            self.role.name.underscore == method_name.to_s.match(/is_(.*)\?/)[1]
+          else
+            false
+          end
         end
         self.send method_name
       else
