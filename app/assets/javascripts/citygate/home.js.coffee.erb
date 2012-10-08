@@ -10,4 +10,7 @@ $ ->
     init: ->
       role_selector.select_new_role()
 
-  $(document).on 'page:change', role_selector.init()
+  # When using turbolinks
+  $(window).on 'page:change', role_selector.init()
+  # otherwise
+  role_selector.init()
