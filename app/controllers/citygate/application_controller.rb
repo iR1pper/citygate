@@ -10,6 +10,7 @@ class Citygate::ApplicationController < ::ApplicationController
   before_filter :set_locale
 
   rescue_from CanCan::AccessDenied do |exception|
+    Rails.logger.debug "Access denied on #{exception.action} #{exception.subject.inspect}"
     redirect_to root_url, :alert => t('cancan.access_denied')
   end unless ::ApplicationController.rescue_handlers.assoc "CanCan::AccessDenied"
 

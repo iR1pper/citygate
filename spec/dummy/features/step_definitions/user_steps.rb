@@ -150,6 +150,7 @@ When /^I sign in with a wrong password$/ do
 end
 
 When /^I edit my account details$/ do
+  p page.body
   click_link "Edit account"
   fill_in "user_current_password", :with => @visitor[:password]
   click_button "Update"

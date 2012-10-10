@@ -4,7 +4,7 @@ Citygate is a rails engine that provides your application with user authenticati
 
 It also provides a customizable backend for administrating all your users, using turbolinks making your website as fast and responsive as you ever wanted it to be.
 
-Citygate aims to provide this functionalities in a hassle free way, thus it requires very little to no configuration in order to have everything up and running. It achieves this at the cost of being super flexible and configurable, for that you can use gems as sorcery[https://github.com/NoamB/sorcery] or clearance[https://github.com/thoughtbot/clearance], or even hack into devise[https://github.com/plataformatec/devise] or cancan[https://github.com/ryanb/cancan] yourself.
+Citygate aims to provide this functionalities in a hassle free way, thus it requires very little to no configuration in order to have everything up and running. It achieves this at the cost of not being super flexible and configurable, for that you can use gems as sorcery[https://github.com/NoamB/sorcery] or clearance[https://github.com/thoughtbot/clearance], or even hack into devise[https://github.com/plataformatec/devise] or cancan[https://github.com/ryanb/cancan] yourself.
 
 == Instalation
 
