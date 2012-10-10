@@ -1,8 +1,10 @@
 = {<img src="http://i50.tinypic.com/wag4d4.png">}[http://github.com/zamith/citygate] {<img src="https://secure.travis-ci.org/zamith/citygate.png" />}[http://travis-ci.org/zamith/citygate]
 
-Citygate is a rails engine that provides your application with user authentication (on the site or through facebook or google) using Devise and fully customizable authorization using CanCan.
+Citygate is a rails engine that provides your application with user authentication (on the site or through OAuth) using Devise and fully customizable authorization using CanCan.
 
-It also provides a customizable backend for administrating all your users, using pjax and pushState making your website as fast as responsive as you ever wanted it to be.
+It also provides a customizable backend for administrating all your users, using turbolinks making your website as fast and responsive as you ever wanted it to be.
+
+Citygate aims to provide this functionalities in a hassle free way, thus it requires very little to no configuration in order to have everything up and running. It achieves this at the cost of being super flexible and configurable, for that you can use gems as sorcery[https://github.com/NoamB/sorcery] or clearance[https://github.com/thoughtbot/clearance], or even hack into devise[https://github.com/plataformatec/devise] or cancan[https://github.com/ryanb/cancan] yourself.
 
 == Instalation
 
