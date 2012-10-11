@@ -1,0 +1,8 @@
+Description:
+    This will create an ability file that is compliant with CanCan and has all the authorization needed by Citygate's internals
+
+Example:
+    rails generate ability
+
+    This will create:
+        lib/ability.rb

@@ -1,6 +1,6 @@
 = {<img src="http://i50.tinypic.com/wag4d4.png">}[http://github.com/zamith/citygate] {<img src="https://secure.travis-ci.org/zamith/citygate.png" />}[http://travis-ci.org/zamith/citygate]
 
-Citygate is a rails engine that provides your application with user authentication (on the site or through OAuth) using Devise and fully customizable authorization using CanCan.
+Citygate is a rails engine that provides your application with user authentication (on the site or through OAuth) using Devise and authorization using CanCan.
 
 It also provides a customizable backend for administrating all your users, using turbolinks making your website as fast and responsive as you ever wanted it to be.
 
@@ -94,6 +94,14 @@ The available options are:
 will_paginate_options:: an hash with any option supported by paginate[https://github.com/mislav/will_paginate/wiki]
 mount_path:: if you mount the engine in any other path than "/", must define it here as well so that omniauth can be aware of it
 no_of_users:: limit the number of users allowed in your system
+
+== Authorization
+
+Citygate load CanCan and uses it internally, but since it cannot know which roles and permissions you need it leaves it up to you to define an Ability class following the CanCan format[https://github.com/ryanb/cancan/wiki/Defining-Abilities]. 
+
+Citygate checks for authorization on most of its views, you can generate a default ability class by running:
+
+  rails generate ability 
 
 == Running Citygate
 
