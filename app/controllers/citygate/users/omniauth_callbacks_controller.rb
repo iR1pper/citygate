@@ -74,6 +74,9 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
     auth = user.authorizations.find_by_provider(provider)
     auth ||= user.authorizations.build(:provider => provider)
     auth.update_attributes auth_attr
+
+    #TODO: Add config for this
+    user.update_attribute :role_id, 1
     
     return user
   end
