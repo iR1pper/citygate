@@ -1,5 +1,5 @@
 $:.push File.expand_path("../lib", __FILE__)
- 
+
 # Maintain your gem's version:
 require "citygate/version"
 require 'rbconfig'
@@ -18,19 +18,21 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"]
 
   # Dependencies
-  s.add_dependency "rails",              ">= 3.2.2"  
+  s.add_dependency "rails",              ">= 3.2.2"
   s.add_dependency "devise",             ">= 2.0.4"
   s.add_dependency "devise-encryptable", ">= 0.1.1"
   s.add_dependency "devise_invitable",   ">= 1.0.0"
+  s.add_dependency "oa-oauth"
   s.add_dependency "omniauth",           "~> 1.0.2"
   s.add_dependency "omniauth-facebook",  "~> 1.2.0"
   s.add_dependency "omniauth-openid",    "~> 1.0.1"
+  s.add_dependency "omniauth-twitter"
   s.add_dependency "uuidtools",          ">= 2.1.2"
   s.add_dependency "will_paginate",      ">= 3.0.3"
   s.add_dependency "cancan",             ">= 1.6.7"
   s.add_dependency "sass-rails"
-  
-  s.add_development_dependency     "thin", ">= 1.3.1"  
+
+  s.add_development_dependency     "thin", ">= 1.3.1"
   s.add_development_dependency     "rspec-rails",      ">= 2.8.1"
   s.add_development_dependency     "email_spec",       ">= 1.2.1"
   s.add_development_dependency     "factory_girl",     "2.6.4"

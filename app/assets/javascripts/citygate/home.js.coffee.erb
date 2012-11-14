@@ -8,7 +8,15 @@ $ ->
     init: ->
       role_selector.select_new_role()
 
+  form_wizard =
+    init: ->
+      $("#new_user").formToWizard({ submitButton: 'save-account' })
+
+  ready = ->
+    role_selector.init()
+    form_wizard.init()
+
   # When using turbolinks
-  $(window).bind 'page:change', role_selector.init()
+  $(document).on('page:load', ready)
   # otherwise
-  role_selector.init()
+  ready()

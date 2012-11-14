@@ -6,22 +6,28 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
   def facebook
     oauthorize "Facebook"
   end
-  
+
   # Authorize user with his google (openid) account
   def google
     oauthorize "Google"
   end
-  
+
+  def twitter
+    oauthorize "Twitter"
+  end
+
   # In case of error renders 404
   def passthru
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
-  
+
   private
 
   def oauthorize(kind)
     current_user ||= (params[:user]) ? Citygate::User.find(params[:user]) : nil
     @user = find_for_oauth(kind, request.env["omniauth.auth"], current_user)
+    p @user.errors
+    p @user.persisted?
     if @user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => kind
       session["devise.#{kind.downcase}_data"] = request.env["omniauth.auth"]
@@ -30,7 +36,7 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
       @user.authorizations.map(&:destroy)
       flash[:error] = @user.errors.full_messages.first
       redirect_to new_user_registration_url
-    end    
+    end
   end
 
   def find_for_oauth(provider, access_token, resource=nil)
@@ -39,13 +45,13 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
     when "Facebook"
       uid = access_token['uid']
       email = access_token['extra']['raw_info']['email']
-      auth_attr = { 
-        :uid => uid, 
+      auth_attr = {
+        :uid => uid,
         :token => access_token['credentials']['token'],
         :secret => nil,
         :name => access_token['extra']['raw_info']['name'],
         :link => access_token['extra']['raw_info']['link'],
-        :image_url => access_token['info']['image'] 
+        :image_url => access_token['info']['image']
       }
     when "Google"
       uid = access_token['uid']
@@ -55,6 +61,16 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
         :token => access_token['credentials']['token'],
         :secret => nil,
         :name => access_token['info']['name'],
+      }
+    when "Twitter"
+      uid = access_token['extra']['raw_info']['id']
+      name = access_token['extra']['raw_info']['name']
+      auth_attr = {
+        :uid => uid,
+        :token => access_token['credentials']['token'],
+        :secret => nil,
+        :name => access_token['extra']['raw_info']['name'],
+        :image_url => access_token['extra']['raw_info']['profile_image_url']
       }
     else
       raise "Provider #{provider} not handled"
@@ -76,8 +92,11 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
     auth.update_attributes auth_attr
 
     #TODO: Add config for this
-    user.update_attribute :role_id, 1
-    
+    user.update_attributes(
+      role_id: 1,
+      confirmed_at: Time.now
+    )
+
     return user
   end
 
@@ -103,8 +122,8 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
     if user = Citygate::User.find_by_first_name(name)
       user
     else
-      user = Citygate::User.new(:first_name => name, :password => Devise.friendly_token[0,20], :email => "#{UUIDTools::UUID.random_create}@host")
-      user.save false
+      user = Citygate::User.new(:first_name => name, :password => Devise.friendly_token[0,20], :email => "#{UUIDTools::UUID.random_create}@host.com")
+      user.save
     end
     return user
   end
