@@ -10,7 +10,7 @@
     <% class_str += (connected_providers.include? provider.to_s.capitalize) ? "connected" : "can-connect" %>
 
     <div class="<%= class_str %>">
-      <%= link_to "#{provider.to_s.capitalize}", user_omniauth_authorize_path(provider, {user: current_user}) %>
+      <%= link_to "#{provider.to_s.capitalize}", "/users/auth/#{provider.to_s}?user=#{current_user.id}" %>
     </div>
   <% end %>
 </div>

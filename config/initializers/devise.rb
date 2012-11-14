@@ -218,7 +218,7 @@ Devise.setup do |config|
                     :identifier => "https://www.google.com/accounts/o8/id",
                     :require => 'omniauth-openid'
 
-    config.omniauth :twitter, "8n7arGgPeq3PejxzxcRsw", "gKA9W1mNdop5NKlySRxgbDgGCtBJUQqbW9Nfv88k4E",
+    config.omniauth :twitter, ACCOUNTS['twitter']['app_id'], ACCOUNTS['twitter']['app_secret'],
       :strategy_class => OmniAuth::Strategies::Twitter
   else
     config.omniauth :facebook, "foo", "bar",
