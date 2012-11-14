@@ -26,8 +26,6 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
   def oauthorize(kind)
     current_user ||= (params[:user]) ? Citygate::User.find(params[:user]) : nil
     @user = find_for_oauth(kind, request.env["omniauth.auth"], current_user)
-    p @user.errors
-    p @user.persisted?
     if @user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => kind
       session["devise.#{kind.downcase}_data"] = request.env["omniauth.auth"]

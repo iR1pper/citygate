@@ -39,11 +39,11 @@ RSpec.configure do |config|
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
-  
+
   config.before(:each) do
     @routes = Citygate::Engine.routes
   end
-  
+
 end
 
 OmniAuth.config.test_mode = true
@@ -72,6 +72,20 @@ OmniAuth.config.mock_auth[:google] = {
   "info" => {
     "email" => "zamith@groupbuddies.com",
     "name" => "zamith"
+  }
+}
+
+OmniAuth.config.mock_auth[:twitter] = {
+  "credentials" => {
+    "token" => "1234567890"
+  },
+  "extra" => {
+    "raw_info" => {
+      "id" => "10",
+      "name" => "zamith",
+      "link" => "zamith.github.com",
+      "profile_link_url" => "/path/to/image"
+    }
   }
 }
 

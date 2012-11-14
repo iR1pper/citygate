@@ -218,8 +218,8 @@ Devise.setup do |config|
                     :identifier => "https://www.google.com/accounts/o8/id",
                     :require => 'omniauth-openid'
 
-    config.omniauth :twitter, "8n7arGgPeq3PejxzxcRsw", "gKA9W1mNdop5NKlySRxgbDgGCtBJUQqbW9Nfv88k4E", :strategy_class =>
-OmniAuth::Strategies::Twitter
+    config.omniauth :twitter, "8n7arGgPeq3PejxzxcRsw", "gKA9W1mNdop5NKlySRxgbDgGCtBJUQqbW9Nfv88k4E",
+      :strategy_class => OmniAuth::Strategies::Twitter
   else
     config.omniauth :facebook, "foo", "bar",
       { :scope => 'email, offline_access' }
@@ -230,6 +230,9 @@ OmniAuth::Strategies::Twitter
                     :name => 'google',
                     :identifier => "foobar",
                     :require => 'omniauth-openid'
+
+    config.omniauth :twitter, "foo", "bar",
+      :strategy_class => OmniAuth::Strategies::Twitter
   end
 
 
