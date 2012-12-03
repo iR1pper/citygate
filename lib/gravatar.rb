@@ -10,12 +10,13 @@ module Gravatar
   def gravatar_id
     Digest::MD5.hexdigest(self.email.to_s.downcase)
   end
-  
+
   # Generates the full gravatar url for the user (always uses https)
   # @param [Hash] options The only available option is the avatar rating you which to fetch
   # @return [String] gravatar url
   def gravatar_url(options = { rating: 'g'})
-    "https://secure.gravatar.com/avatar/#{self.gravatar_id}.png/rating=#{options[:rating]}"
+    opts = options.collect {|key, value| "#{key}=#{value}"}.join('&')
+    "https://secure.gravatar.com/avatar/#{self.gravatar_id}.png?#{opts}"
   end
 
 end
