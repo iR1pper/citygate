@@ -1,5 +1,5 @@
 module Citygate
-  
+
   # @author Zamith
   # @!attribute name
   #   @return [String] the name of the user
@@ -15,11 +15,11 @@ module Citygate
     devise  :encryptor => :sha1
     # @!endgroup
 
-    attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :confirmed_at, :role_id
+    attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :confirmed_at, :role_id, :username
 
     has_many :authorizations, :dependent => :destroy
     belongs_to :role
-    
+
     before_create :check_no_of_users
 
     def method_missing(method_name, *args, &block)
