@@ -23,7 +23,13 @@ class Citygate::Admin::UsersController < Citygate::Admin::ApplicationController
   def update
     @user = Citygate::User.find(params[:id])
 
-    if @user.update_without_password(params[:user])
+    if params[:user][:password]
+      saved = @user.update_with_password(params[:user])
+    else
+      saved = @user.update_without_password(params[:user])
+    end
+
+    if saved
       flash[:notice] = t('admin.users.update.success')
       redirect_to :action => 'show'
     else

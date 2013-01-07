@@ -97,11 +97,15 @@ no_of_users:: limit the number of users allowed in your system
 
 == Authorization
 
-Citygate load CanCan and uses it internally, but since it cannot know which roles and permissions you need it leaves it up to you to define an Ability class following the CanCan format[https://github.com/ryanb/cancan/wiki/Defining-Abilities]. 
+Citygate load CanCan and uses it internally, but since it cannot know which roles and permissions you need it leaves it up to you to define an Ability class following the CanCan format[https://github.com/ryanb/cancan/wiki/Defining-Abilities].
 
 Citygate checks for authorization on most of its views, you can generate a default ability class by running:
 
-  rails generate ability 
+  rails generate ability
+
+You might want to add the files in +lib+ to the load path:
+
+  config.autoload_paths += ["#{Rails.root}/lib"]
 
 == Running Citygate
 
