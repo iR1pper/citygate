@@ -20,6 +20,8 @@ module Citygate
     has_many :authorizations, :dependent => :destroy
     belongs_to :role
 
+    validates :username, uniqueness: true
+
     before_create :check_no_of_users
 
     def method_missing(method_name, *args, &block)
