@@ -206,10 +206,12 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   require 'omniauth-twitter'
+  require 'omniauth-facebook'
 
   if not Rails.env.test? and (defined? ACCOUNTS and ACCOUNTS['facebook'])
     config.omniauth :facebook, ACCOUNTS['facebook']['app_id'], ACCOUNTS['facebook']['app_secret'],
-      { :scope => 'email, offline_access' }
+      :strategy_class => OmniAuth::Strategies::Facebook,
+      :scope => 'email, offline_access'
 
     require 'openid/store/filesystem'
     config.omniauth :open_id,
