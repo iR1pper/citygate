@@ -38,7 +38,7 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
   end
 
   def find_for_oauth(provider, access_token, resource=nil)
-    user, email, name, uid, auth_attr = nil, nil, nil, {}
+    user, email, name, username, uid, auth_attr = nil, nil, nil, nil, nil, {}
     case provider
     when "Facebook"
       uid = access_token['uid']
@@ -63,6 +63,7 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
     when "Twitter"
       uid = access_token['extra']['raw_info']['id']
       name = access_token['extra']['raw_info']['name']
+      username = access_token['extra']['raw_info']['screen_name']
       auth_attr = {
         :uid => uid,
         :token => access_token['credentials']['token'],
@@ -90,10 +91,12 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
     auth.update_attributes auth_attr
 
     #TODO: Add config for this
-    user.update_attributes(
+    user_attr = {
       role_id: 1,
       confirmed_at: Time.now
-    )
+    }
+    user_attr.merge! username: username if username
+    user.update_attributes user_attr
 
     return user
   end
