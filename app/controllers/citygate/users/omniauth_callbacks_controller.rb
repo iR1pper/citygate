@@ -21,6 +21,11 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
     render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
 
+  def failure
+    set_flash_message :alert, :failure, :kind => failed_strategy.name.to_s.humanize, :reason => failure_message
+    redirect_to main_app.root_path
+  end
+
   private
 
   def oauthorize(kind)

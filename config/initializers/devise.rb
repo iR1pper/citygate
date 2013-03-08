@@ -221,7 +221,8 @@ Devise.setup do |config|
                     :require => 'omniauth-openid'
 
     config.omniauth :twitter, ACCOUNTS['twitter']['app_id'], ACCOUNTS['twitter']['app_secret'],
-      :strategy_class => OmniAuth::Strategies::Twitter
+      :strategy_class => OmniAuth::Strategies::Twitter,
+      :sign_in => true
   else
     config.omniauth :facebook, "foo", "bar",
       { :scope => 'email, offline_access' }
