@@ -5,5 +5,6 @@ script: cd spec/dummy ; rake db:test:load ; rake travis
 rvm:
   - 1.9.2
   - 1.9.3
+  - 2.0.0
 gemfile:
   - Gemfile
