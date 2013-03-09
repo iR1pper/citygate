@@ -91,6 +91,7 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
     else
       user = resource
     end
+
     auth = user.authorizations.find_by_provider(provider)
     auth ||= user.authorizations.build(:provider => provider)
     auth.update_attributes auth_attr
@@ -119,6 +120,7 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
       user
     else
       user = Citygate::User.new(:email => email, :password => Devise.friendly_token[0,20])
+      user.skip_confirmation!
       user.save
     end
     return user
@@ -129,6 +131,7 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
       user
     else
       user = Citygate::User.new(:first_name => name, :password => Devise.friendly_token[0,20], :email => "#{UUIDTools::UUID.random_create}@host.com")
+      user.skip_confirmation!
       user.save
     end
     return user
