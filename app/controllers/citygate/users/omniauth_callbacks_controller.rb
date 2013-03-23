@@ -79,6 +79,7 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
     else
       raise "Provider #{provider} not handled"
     end
+
     if resource.nil?
       if email
         user = find_for_oauth_by_email(email, resource)
@@ -98,8 +99,7 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
 
     #TODO: Add config for this
     user_attr = {
-      role_id: 1,
-      confirmed_at: Time.now
+      role_id: 1
     }
     user_attr.merge! username: username if username
     user.update_attributes user_attr
