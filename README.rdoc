@@ -1,4 +1,4 @@
-= {<img src="http://i50.tinypic.com/wag4d4.png">}[http://github.com/zamith/citygate] {<img src="https://secure.travis-ci.org/zamith/citygate.png" />}[http://travis-ci.org/zamith/citygate] {<img src="https://codeclimate.com/github/zamith/citygate.png" />}[https://codeclimate.com/github/zamith/citygate]
+= {<img src="http://i50.tinypic.com/wag4d4.png">}[http://github.com/zamith/citygate] {<img src="https://secure.travis-ci.org/zamith/citygate.png" />}[http://travis-ci.org/zamith/citygate] {<img src="https://codeclimate.com/github/zamith/citygate.png" />}[https://codeclimate.com/github/zamith/citygate] {<img src="http://rails-brakeman.com/zamith/citygate.png" />}[http://rails-brakeman.com/zamith/citygate]
 
 Citygate is a rails engine that provides your application with user authentication (on the site or through OAuth) using Devise and authorization using CanCan.
 
