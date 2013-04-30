@@ -21,19 +21,25 @@ module Citygate
 
   class Engine < ::Rails::Engine
     isolate_namespace Citygate
-    
+
     config.i18n.load_path += Dir[Citygate::Engine.root.join('config', 'locales', '**', '*.{rb,yml}')]
-    
+
+    config.generators do |g|
+      g.test_framework false
+      g.assets false
+      g.helper false
+    end
+
     # Accepts the same options as will_paginate and uses
     # them in the backend
     mattr_accessor :will_paginate_options
     @@will_paginate_options = { per_page: 10 }
-    
+
     # If the mount path of citygate in the app changes,
     # this must change
     mattr_accessor :mount_path
     @@mount_path = ""
-    
+
     # The maximum number of allowed users. 0 is unlimited.
     mattr_accessor :no_of_users
     @@no_of_users = 0
@@ -41,10 +47,10 @@ module Citygate
     #The roles in the system (guest is implicit)
     mattr_accessor :roles
     @@roles = [
-      { name: "member" }, 
+      { name: "member" },
       { name: "admin" }
     ]
-    
+
     def configure
       yield self
     end
