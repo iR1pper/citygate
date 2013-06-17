@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency     "email_spec",       ">= 1.2.1"
   s.add_development_dependency     "factory_girl",     "2.6.4"
   s.add_development_dependency     "cucumber-rails",   ">= 1.3.0"
-  s.add_development_dependency     "capybara",         ">= 1.1.2"
+  s.add_development_dependency     "capybara",         "~> 1.1.2"
   s.add_development_dependency     "database_cleaner", ">= 0.7.1"
   s.add_development_dependency     "launchy",          ">= 2.0.5"
   s.add_development_dependency     "jasmine-rails",    ">= 0.0.3"
