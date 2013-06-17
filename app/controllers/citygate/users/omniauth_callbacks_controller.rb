@@ -54,7 +54,8 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
         :secret => nil,
         :name => access_token['extra']['raw_info']['name'],
         :link => access_token['extra']['raw_info']['link'],
-        :image_url => access_token['info']['image']
+        :image_url => access_token['info']['image'],
+        :email => email
       }
     when "Google"
       uid = access_token['uid']
@@ -64,6 +65,7 @@ class Citygate::Users::OmniauthCallbacksController < Devise::OmniauthCallbacksCo
         :token => access_token['credentials']['token'],
         :secret => nil,
         :name => access_token['info']['name'],
+        :email => email
       }
     when "Twitter"
       uid = access_token['extra']['raw_info']['id']

@@ -7,6 +7,6 @@ module Citygate
     belongs_to :user
     
     # @!visibility public
-    attr_accessible :provider, :uid, :user_id, :token, :secret, :name, :link, :image_url
+    attr_accessible :provider, :uid, :user_id, :token, :secret, :name, :link, :image_url, :email
   end
 end
